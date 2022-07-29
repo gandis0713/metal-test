@@ -13,10 +13,25 @@
 		1799A0392893710D00546FC3 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A0382893710D00546FC3 /* Metal.framework */; };
 		1799A03B289374DB00546FC3 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A03A289374DB00546FC3 /* AppKit.framework */; };
 		1799A03E289375AE00546FC3 /* MTKViewRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1799A03C289375AE00546FC3 /* MTKViewRenderer.mm */; };
+		1799A04B2893948500546FC3 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A0382893710D00546FC3 /* Metal.framework */; };
+		1799A04C2893948500546FC3 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A03428936C2A00546FC3 /* MetalKit.framework */; };
+		1799A04D2893948B00546FC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A03628936FA000546FC3 /* Foundation.framework */; };
+		1799A04E2893949000546FC3 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A03A289374DB00546FC3 /* AppKit.framework */; };
+		1799A052289394C000546FC3 /* MTKViewRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1799A04F289394C000546FC3 /* MTKViewRenderer.mm */; };
+		1799A053289394C000546FC3 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1799A050289394C000546FC3 /* main.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		1799A02728936B4E00546FC3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		1799A0422893947900546FC3 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -36,6 +51,10 @@
 		1799A03A289374DB00546FC3 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		1799A03C289375AE00546FC3 /* MTKViewRenderer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MTKViewRenderer.mm; sourceTree = "<group>"; };
 		1799A03D289375AE00546FC3 /* MTKViewRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTKViewRenderer.h; sourceTree = "<group>"; };
+		1799A0442893947900546FC3 /* triangle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = triangle; sourceTree = BUILT_PRODUCTS_DIR; };
+		1799A04F289394C000546FC3 /* MTKViewRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MTKViewRenderer.mm; sourceTree = "<group>"; };
+		1799A050289394C000546FC3 /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		1799A051289394C000546FC3 /* MTKViewRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKViewRenderer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +69,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1799A0412893947900546FC3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1799A04B2893948500546FC3 /* Metal.framework in Frameworks */,
+				1799A04E2893949000546FC3 /* AppKit.framework in Frameworks */,
+				1799A04D2893948B00546FC3 /* Foundation.framework in Frameworks */,
+				1799A04C2893948500546FC3 /* MetalKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -57,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				1799A02B28936B4E00546FC3 /* clear_color */,
+				1799A0452893947900546FC3 /* triangle */,
 				1799A02A28936B4E00546FC3 /* Products */,
 				1799A03328936C2A00546FC3 /* Frameworks */,
 			);
@@ -66,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				1799A02928936B4E00546FC3 /* clear_color */,
+				1799A0442893947900546FC3 /* triangle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -91,6 +123,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		1799A0452893947900546FC3 /* triangle */ = {
+			isa = PBXGroup;
+			children = (
+				1799A050289394C000546FC3 /* main.mm */,
+				1799A051289394C000546FC3 /* MTKViewRenderer.h */,
+				1799A04F289394C000546FC3 /* MTKViewRenderer.mm */,
+			);
+			path = triangle;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -111,6 +153,23 @@
 			productReference = 1799A02928936B4E00546FC3 /* clear_color */;
 			productType = "com.apple.product-type.tool";
 		};
+		1799A0432893947900546FC3 /* triangle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1799A0482893947900546FC3 /* Build configuration list for PBXNativeTarget "triangle" */;
+			buildPhases = (
+				1799A0402893947900546FC3 /* Sources */,
+				1799A0412893947900546FC3 /* Frameworks */,
+				1799A0422893947900546FC3 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = triangle;
+			productName = triangle;
+			productReference = 1799A0442893947900546FC3 /* triangle */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -121,6 +180,9 @@
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
 					1799A02828936B4E00546FC3 = {
+						CreatedOnToolsVersion = 13.4;
+					};
+					1799A0432893947900546FC3 = {
 						CreatedOnToolsVersion = 13.4;
 					};
 				};
@@ -139,6 +201,7 @@
 			projectRoot = "";
 			targets = (
 				1799A02828936B4E00546FC3 /* clear_color */,
+				1799A0432893947900546FC3 /* triangle */,
 			);
 		};
 /* End PBXProject section */
@@ -150,6 +213,15 @@
 			files = (
 				1799A03E289375AE00546FC3 /* MTKViewRenderer.mm in Sources */,
 				1799A02D28936B4E00546FC3 /* main.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1799A0402893947900546FC3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1799A053289394C000546FC3 /* main.mm in Sources */,
+				1799A052289394C000546FC3 /* MTKViewRenderer.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +353,22 @@
 			};
 			name = Release;
 		};
+		1799A0492893947900546FC3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1799A04A2893947900546FC3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -298,6 +386,15 @@
 			buildConfigurations = (
 				1799A03128936B4E00546FC3 /* Debug */,
 				1799A03228936B4E00546FC3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1799A0482893947900546FC3 /* Build configuration list for PBXNativeTarget "triangle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1799A0492893947900546FC3 /* Debug */,
+				1799A04A2893947900546FC3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
