@@ -12,7 +12,24 @@
 int main(int argc, const char * argv[])
 {
     
-    @autoreleasepool {
+    @autoreleasepool
+    {
+        // MTLDevice (Metal Framework)
+        id<MTLDevice> device = MTLCreateSystemDefaultDevice();
+        
+        // NSViewController[MTKViewDelegate] (MetalKit Framework)
+//        MTKViewRenderer* viewRenderer = [[MTKViewRenderer alloc] init];
+        MTKViewRenderer* viewRenderer = [[MTKViewRenderer alloc]initWithDevice:device];
+        
+        NSRect viewRect = NSMakeRect(320, 0, 640, 720);
+        
+        // MTKView (MetalKit Framework)
+        MTKView* view = [[MTKView alloc] initWithFrame:viewRect];
+        view.device = device;
+        view.delegate = viewRenderer;
+        view.colorPixelFormat = MTLPixelFormatBGRA8Unorm_sRGB;
+        view.clearColor = MTLClearColorMake(1.0, 0.0, 0.0, 1.0);
+        view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
         
         NSRect windowRect = NSMakeRect(0, 0, 1280, 720);
         
@@ -23,26 +40,13 @@ int main(int argc, const char * argv[])
                             backing:NSBackingStoreBuffered
                             defer:NO];
         
-        NSRect viewRect = NSMakeRect(0, 0, 1280, 720);
-        
-        // MTKView (MetalKit Framework)
-        MTKView* view = [[MTKView alloc] initWithFrame:viewRect];
-        
-        // MTLDevice (Metal Framework)
-        id<MTLDevice> device = MTLCreateSystemDefaultDevice();
-        MTKViewRenderer* viewRenderer = [[MTKViewRenderer alloc] init];
-        view.device = device;
-        view.delegate = viewRenderer;
-        view.colorPixelFormat = MTLPixelFormatBGRA8Unorm_sRGB;
-        view.clearColor = MTLClearColorMake(1.0, 0.0, 0.0, 1.0);
-        view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
-        
         [window.contentView addSubview:view];
         [window center];
         [window orderFrontRegardless];
         
         [NSApp setActivationPolicy:NSApplicationActivationPolicyRegular];
         [NSApp run];
+        
     }
 
     return 0;

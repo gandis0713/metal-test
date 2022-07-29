@@ -11,7 +11,12 @@
 
 @interface MTKViewRenderer : NSViewController<MTKViewDelegate>
 {
-    
+    id<MTLDevice> device;
+    id<MTLCommandQueue> commandQueue;
 }
+
+-(id)initWithDevice:(id<MTLDevice>) device;
+
+-(void)dealloc;
 
 @end
