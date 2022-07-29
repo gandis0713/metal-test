@@ -26,7 +26,7 @@
 
     device = device;
     
-    commandQueue = [device newCommandQueue];
+    command_queue = [device newCommandQueue];
     
     return self;
 }
@@ -47,13 +47,13 @@
 //    NSLog(@"drawInMTKView");
     @autoreleasepool
     {
-        id<MTLCommandBuffer> commandBuffer = [commandQueue commandBuffer];
-        MTLRenderPassDescriptor* renderPassDescriptor = [view currentRenderPassDescriptor];
-        id<MTLCommandEncoder> commandEncoder = [commandBuffer renderCommandEncoderWithDescriptor:renderPassDescriptor];
+        id<MTLCommandBuffer> command_buffer = [command_queue commandBuffer];
+        MTLRenderPassDescriptor* render_pass_descriptor = [view currentRenderPassDescriptor];
+        id<MTLCommandEncoder> command_encoder = [command_buffer renderCommandEncoderWithDescriptor:render_pass_descriptor];
         
-        [commandEncoder endEncoding];
-        [commandBuffer presentDrawable:view.currentDrawable];
-        [commandBuffer commit];
+        [command_encoder endEncoding];
+        [command_buffer presentDrawable:view.currentDrawable];
+        [command_buffer commit];
     }
 }
 @end
