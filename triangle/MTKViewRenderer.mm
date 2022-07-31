@@ -26,7 +26,49 @@
 {
     NSError* err = nullptr;
     
-    NSString* source = [NSString stringWithString:@R"(
+//    NSString* source = [NSString stringWithString:@R"(
+//        #include <metal_stdlib>
+//        using namespace metal;
+//
+//        struct v2f
+//        {
+//            float4 position [[position]];
+//            half3 color;
+//        };
+//
+//        v2f vertex vertexMain( uint vertexId [[vertex_id]],
+//                               device const float3* positions [[buffer(0)]],
+//                               device const float3* colors [[buffer(1)]] )
+//        {
+//            v2f o;
+//            o.position = float4( positions[ vertexId ], 1.0 );
+//            o.color = half3 ( colors[ vertexId ] );
+//            return o;
+//        }
+//
+//        half4 fragment fragmentMain( v2f in [[stage_in]] )
+//        {
+//            return half4( in.color, 1.0 );
+//        }
+//    )"];
+//
+//    NSLog(@"%@", source);
+//
+//    id<MTLLibrary> library = [device newLibraryWithSource:source
+//                                                  options:nullptr
+//                                                    error:&err];
+//
+//    if(!library)
+//    {
+//        NSLog(@"Failed to create library [error : %@]", err);
+//        assert(false);
+//    }
+//
+//    id<MTLFunction> vertex_function = [library newFunctionWithName:@"vertexMain"];
+//    id<MTLFunction> fragment_function = [library newFunctionWithName:@"fragmentMain"];
+  
+    
+    NSString* vertex_source = [NSString stringWithString:@R"(
         #include <metal_stdlib>
         using namespace metal;
 
@@ -36,7 +78,7 @@
             half3 color;
         };
 
-        v2f vertex vertexMain( uint vertexId [[vertex_id]],
+        v2f vertex vertex_main( uint vertexId [[vertex_id]],
                                device const float3* positions [[buffer(0)]],
                                device const float3* colors [[buffer(1)]] )
         {
@@ -45,27 +87,51 @@
             o.color = half3 ( colors[ vertexId ] );
             return o;
         }
+    )"];
+    
+    NSString* fragment_source = [NSString stringWithString: @R"(
+        #include <metal_stdlib>
+        using namespace metal;
 
-        half4 fragment fragmentMain( v2f in [[stage_in]] )
+        struct v2f
+        {
+            float4 position [[position]];
+            half3 color;
+        };
+
+        half4 fragment fragment_main( v2f in [[stage_in]] )
         {
             return half4( in.color, 1.0 );
         }
     )"];
     
-    NSLog(@"%@", source);
+    NSLog(@"%@", vertex_source);
+    NSLog(@"%@", fragment_source);
     
-    id<MTLLibrary> library = [device newLibraryWithSource:source
+    id<MTLLibrary> vertex_library = [device newLibraryWithSource:vertex_source
                                                   options:nullptr
                                                     error:&err];
     
-    if(!library)
+    if(!vertex_library)
     {
         NSLog(@"Failed to create library [error : %@]", err);
         assert(false);
     }
     
-    id<MTLFunction> vertex_function = [library newFunctionWithName:@"vertexMain"];
-    id<MTLFunction> fragment_function = [library newFunctionWithName:@"fragmentMain"];
+    
+    
+    id<MTLLibrary> fragment_library = [device newLibraryWithSource:fragment_source
+                                                  options:nullptr
+                                                    error:&err];
+    
+    if(!fragment_library)
+    {
+        NSLog(@"Failed to create library [error : %@]", err);
+        assert(false);
+    }
+    
+    id<MTLFunction> vertex_function = [vertex_library newFunctionWithName:@"vertex_main"];
+    id<MTLFunction> fragment_function = [fragment_library newFunctionWithName:@"fragment_main"];
     
     MTLRenderPipelineDescriptor* render_pipeline_descriptor = [[MTLRenderPipelineDescriptor alloc]init];
     [render_pipeline_descriptor setVertexFunction:vertex_function];
@@ -83,20 +149,28 @@
 
 -(void)buildBuffers
 {
-    const size_t NumVertices = 3;
+    const size_t NumVertices = 6;
 
     simd::float3 positions[NumVertices] =
     {
-        { -0.8f,  0.8f, 0.0f },
-        {  0.0f, -0.8f, 0.0f },
-        { +0.8f,  0.8f, 0.0f }
+        { -0.5f,  0.5f, 0.0f },
+        { -0.5f, -0.5f, 0.0f },
+        { +0.5f,  0.5f, 0.0f },
+        
+        { +0.5f,  0.5f, 0.0f },
+        { -0.5f, -0.5f, 0.0f },
+        { +0.5f, -0.5f, 0.0f }
     };
 
     simd::float3 colors[NumVertices] =
     {
-        {  1.0, 0.3f, 0.2f },
-        {  0.8f, 1.0, 0.0f },
-        {  0.8f, 0.0f, 1.0 }
+        {  1.0f, 0.0f, 0.0f },
+        {  1.0f, 1.0f, 0.0f },
+        {  0.0f, 1.0f, 0.0f },
+        
+        {  0.0f, 0.0f, 1.0f },
+        {  0.0f, 0.0f, 1.0f },
+        {  0.0f, 0.0f, 1.0f }
     };
     
     const size_t position_size = NumVertices * sizeof( simd::float3 );
@@ -125,11 +199,17 @@
 //    NSLog(@"drawInMTKView");
     @autoreleasepool
     {
-        id<MTLCommandBuffer> command_buffer = [command_queue commandBuffer];
         MTLRenderPassDescriptor* render_pass_descriptor = [view currentRenderPassDescriptor];
-        id<MTLCommandEncoder> command_encoder = [command_buffer renderCommandEncoderWithDescriptor:render_pass_descriptor];
         
-        [command_encoder endEncoding];
+        id<MTLCommandBuffer> command_buffer = [command_queue commandBuffer];
+        id<MTLRenderCommandEncoder> render_command_encoder = [command_buffer renderCommandEncoderWithDescriptor:render_pass_descriptor];
+        
+        [render_command_encoder setRenderPipelineState:render_pipeline_state];
+        [render_command_encoder setVertexBuffer:vertex_position_buffer offset:0 atIndex:0];
+        [render_command_encoder setVertexBuffer:vertex_color_buffer offset:0 atIndex:1];
+        [render_command_encoder drawPrimitives:MTLPrimitiveTypeTriangle vertexStart:0 vertexCount:6];
+        [render_command_encoder endEncoding];
+        
         [command_buffer presentDrawable:view.currentDrawable];
         [command_buffer commit];
     }
