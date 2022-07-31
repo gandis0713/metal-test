@@ -5,9 +5,7 @@
 //  Created by gandis on 2022/07/31.
 //
 
-#import <MetalKit/MetalKit.h>
-
-#import "MTKModelRenderer.h"
+#import "MTK3DModelRenderer.h"
 
 int main(int argc, const char * argv[])
 {
@@ -17,7 +15,7 @@ int main(int argc, const char * argv[])
 
         NSRect viewRect = NSMakeRect(0, 0, 1280, 720);
         
-        MTKModelRenderer* model_renderer = [[MTKModelRenderer alloc]initWithDevice:device];
+        MTK3DModelRenderer* model_renderer = [[MTK3DModelRenderer alloc]initWithDevice:device];
         [model_renderer buildBuffers];
         [model_renderer buildShaders];
         
@@ -44,6 +42,5 @@ int main(int argc, const char * argv[])
         [NSApp setActivationPolicy:NSApplicationActivationPolicyRegular];
         [NSApp run];
     }
-
     return 0;
 }

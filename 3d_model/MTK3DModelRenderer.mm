@@ -1,17 +1,17 @@
 //
-//  MTKModelRenderer.cpp
+//  MTK3DModelRenderer.cpp
 //  model
 //
 //  Created by gandis on 2022/07/31.
 //
 
-#import "MTKModelRenderer.h"
+#import "MTK3DModelRenderer.h"
 
-@implementation MTKModelRenderer
+@implementation MTK3DModelRenderer
 
 -(id)initWithDevice:(id<MTLDevice>)_device
 {
-    NSLog(@"MTKModelRenderer initWithDevice");
+    NSLog(@"MTK3DModelRenderer initWithDevice");
     
     self = [super init];
 
@@ -76,10 +76,17 @@
 {
     MTKMeshBufferAllocator* mesh_buffer_allocator = [[MTKMeshBufferAllocator alloc] initWithDevice:device];
     
-    vector_float3 sphere_extent = {0.75, 0.75, 0.75};
+    vector_float3 cone_extent = {1, 1, 1};
     vector_uint2 segments = {100, 100};
+//    NSString* resource = [[NSString alloc]initWithString:@"/Users/user/Downloads/train.obj"];
+//    NSString *name = [resource stringByDeletingPathExtension];
+//    NSString *extension = [resource pathExtension];
+
+//       return [[NSBundle mainBundle] URLForResource:name withExtension:extension];
     
-    MDLMesh* mdl_mesh = [[MDLMesh alloc] initSphereWithExtent:sphere_extent segments:segments inwardNormals:false geometryType:MDLGeometryTypeTriangles allocator:mesh_buffer_allocator];
+    MDLMesh* mdl_mesh = [[MDLMesh alloc] initConeWithExtent:cone_extent segments:segments inwardNormals:false
+                                               cap: true
+                                               geometryType:MDLGeometryTypeTriangles allocator:mesh_buffer_allocator];
     
     NSError* err = nullptr;
     

@@ -25,6 +25,12 @@
 		1799A06228968FF800546FC3 /* ModelIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A06128968FF800546FC3 /* ModelIO.framework */; };
 		1799A0652896990200546FC3 /* MTKModelRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1799A0632896990200546FC3 /* MTKModelRenderer.mm */; };
 		1799A067289699B500546FC3 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A03A289374DB00546FC3 /* AppKit.framework */; };
+		1799A06F2896A46600546FC3 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1799A06E2896A46600546FC3 /* main.mm */; };
+		1799A0732896A47E00546FC3 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A0382893710D00546FC3 /* Metal.framework */; };
+		1799A0742896A47E00546FC3 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A03428936C2A00546FC3 /* MetalKit.framework */; };
+		1799A0752896A48400546FC3 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A03A289374DB00546FC3 /* AppKit.framework */; };
+		1799A0762896A48800546FC3 /* ModelIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A06128968FF800546FC3 /* ModelIO.framework */; };
+		1799A0792896A4EC00546FC3 /* MTK3DModelRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1799A0772896A4EC00546FC3 /* MTK3DModelRenderer.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -55,6 +61,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		1799A06A2896A46600546FC3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +90,10 @@
 		1799A06128968FF800546FC3 /* ModelIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ModelIO.framework; path = System/Library/Frameworks/ModelIO.framework; sourceTree = SDKROOT; };
 		1799A0632896990200546FC3 /* MTKModelRenderer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MTKModelRenderer.mm; sourceTree = "<group>"; };
 		1799A0642896990200546FC3 /* MTKModelRenderer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = MTKModelRenderer.h; sourceTree = "<group>"; };
+		1799A06C2896A46600546FC3 /* 3d_model */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = 3d_model; sourceTree = BUILT_PRODUCTS_DIR; };
+		1799A06E2896A46600546FC3 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		1799A0772896A4EC00546FC3 /* MTK3DModelRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MTK3DModelRenderer.mm; sourceTree = "<group>"; };
+		1799A0782896A4EC00546FC3 /* MTK3DModelRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTK3DModelRenderer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +130,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1799A0692896A46600546FC3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1799A0752896A48400546FC3 /* AppKit.framework in Frameworks */,
+				1799A0732896A47E00546FC3 /* Metal.framework in Frameworks */,
+				1799A0762896A48800546FC3 /* ModelIO.framework in Frameworks */,
+				1799A0742896A47E00546FC3 /* MetalKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -120,6 +150,7 @@
 				1799A02B28936B4E00546FC3 /* clear_color */,
 				1799A0452893947900546FC3 /* triangle */,
 				1799A05928968C7200546FC3 /* model */,
+				1799A06D2896A46600546FC3 /* 3d_model */,
 				1799A02A28936B4E00546FC3 /* Products */,
 				1799A03328936C2A00546FC3 /* Frameworks */,
 			);
@@ -131,6 +162,7 @@
 				1799A02928936B4E00546FC3 /* clear_color */,
 				1799A0442893947900546FC3 /* triangle */,
 				1799A05828968C7200546FC3 /* model */,
+				1799A06C2896A46600546FC3 /* 3d_model */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -171,10 +203,20 @@
 			isa = PBXGroup;
 			children = (
 				1799A05A28968C7200546FC3 /* main.mm */,
-				1799A0632896990200546FC3 /* MTKModelRenderer.mm */,
 				1799A0642896990200546FC3 /* MTKModelRenderer.h */,
+				1799A0632896990200546FC3 /* MTKModelRenderer.mm */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		1799A06D2896A46600546FC3 /* 3d_model */ = {
+			isa = PBXGroup;
+			children = (
+				1799A06E2896A46600546FC3 /* main.mm */,
+				1799A0782896A4EC00546FC3 /* MTK3DModelRenderer.h */,
+				1799A0772896A4EC00546FC3 /* MTK3DModelRenderer.mm */,
+			);
+			path = 3d_model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +273,23 @@
 			productReference = 1799A05828968C7200546FC3 /* model */;
 			productType = "com.apple.product-type.tool";
 		};
+		1799A06B2896A46600546FC3 /* 3d_model */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1799A0722896A46600546FC3 /* Build configuration list for PBXNativeTarget "3d_model" */;
+			buildPhases = (
+				1799A0682896A46600546FC3 /* Sources */,
+				1799A0692896A46600546FC3 /* Frameworks */,
+				1799A06A2896A46600546FC3 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = 3d_model;
+			productName = 3d_model;
+			productReference = 1799A06C2896A46600546FC3 /* 3d_model */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -247,6 +306,9 @@
 						CreatedOnToolsVersion = 13.4;
 					};
 					1799A05728968C7200546FC3 = {
+						CreatedOnToolsVersion = 13.4;
+					};
+					1799A06B2896A46600546FC3 = {
 						CreatedOnToolsVersion = 13.4;
 					};
 				};
@@ -267,6 +329,7 @@
 				1799A02828936B4E00546FC3 /* clear_color */,
 				1799A0432893947900546FC3 /* triangle */,
 				1799A05728968C7200546FC3 /* model */,
+				1799A06B2896A46600546FC3 /* 3d_model */,
 			);
 		};
 /* End PBXProject section */
@@ -296,6 +359,15 @@
 			files = (
 				1799A05B28968C7200546FC3 /* main.mm in Sources */,
 				1799A0652896990200546FC3 /* MTKModelRenderer.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1799A0682896A46600546FC3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1799A0792896A4EC00546FC3 /* MTK3DModelRenderer.mm in Sources */,
+				1799A06F2896A46600546FC3 /* main.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +531,22 @@
 			};
 			name = Release;
 		};
+		1799A0702896A46600546FC3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1799A0712896A46600546FC3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -494,6 +582,15 @@
 			buildConfigurations = (
 				1799A05D28968C7200546FC3 /* Debug */,
 				1799A05E28968C7200546FC3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1799A0722896A46600546FC3 /* Build configuration list for PBXNativeTarget "3d_model" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1799A0702896A46600546FC3 /* Debug */,
+				1799A0712896A46600546FC3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
