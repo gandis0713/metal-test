@@ -78,7 +78,7 @@
             half3 color;
         };
 
-        v2f vertex vertex_main( uint vertexId [[vertex_id]],
+        vertex v2f vertex_main( uint vertexId [[vertex_id]],
                                device const float3* positions [[buffer(0)]],
                                device const float3* colors [[buffer(1)]] )
         {
@@ -99,14 +99,14 @@
             half3 color;
         };
 
-        half4 fragment fragment_main( v2f in [[stage_in]] )
+        fragment half4 fragment_main( v2f in [[stage_in]] )
         {
             return half4( in.color, 1.0 );
         }
     )"];
     
-    NSLog(@"%@", vertex_source);
-    NSLog(@"%@", fragment_source);
+    NSLog(@"vertex shader : %@", vertex_source);
+    NSLog(@"fragment shader : %@", fragment_source);
     
     id<MTLLibrary> vertex_library = [device newLibraryWithSource:vertex_source
                                                   options:nullptr
@@ -114,7 +114,7 @@
     
     if(!vertex_library)
     {
-        NSLog(@"Failed to create library [error : %@]", err);
+        NSLog(@"Failed to create library \n[error : %@]", err);
         assert(false);
     }
     
@@ -151,7 +151,7 @@
 {
     const size_t NumVertices = 6;
 
-    simd::float3 positions[NumVertices] =
+    simd::float3 positions[6] =
     {
         { -0.5f,  0.5f, 0.0f },
         { -0.5f, -0.5f, 0.0f },
@@ -173,8 +173,10 @@
         {  0.0f, 0.0f, 1.0f }
     };
     
-    const size_t position_size = NumVertices * sizeof( simd::float3 );
-    const size_t color_size = NumVertices * sizeof( simd::float3 );
+//    const size_t position_size = NumVertices * sizeof( simd::float3 );
+//    const size_t color_size = NumVertices * sizeof( simd::float3 );
+    const size_t position_size = sizeof( positions );
+    const size_t color_size = sizeof( colors );
     
     vertex_position_buffer = [device newBufferWithLength:position_size options:MTLResourceStorageModeManaged];
     vertex_color_buffer = [device newBufferWithLength:color_size options:MTLResourceStorageModeManaged];
