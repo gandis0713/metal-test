@@ -26,7 +26,8 @@
 {
     NSError* err = nullptr;
     
-    NSString* source = [NSString stringWithString:@R"(
+    NSString* source = [NSString stringWithString:
+    @R"(
         #include <metal_stdlib>
         using namespace metal;
         struct VertexIn {
@@ -84,9 +85,20 @@
 
 //       return [[NSBundle mainBundle] URLForResource:name withExtension:extension];
     
-    MDLMesh* mdl_mesh = [[MDLMesh alloc] initConeWithExtent:cone_extent segments:segments inwardNormals:false
-                                               cap: true
-                                               geometryType:MDLGeometryTypeTriangles allocator:mesh_buffer_allocator];
+//    NSBundle* bundle = [NSBundle mainBundle];
+//    let asset = MDLAsset(url: assetURL,
+//     vertexDescriptor: meshDescriptor,
+//     bufferAllocator: allocator)
+//    NSString* path = [bundle pathForResource:@"train" ofType:@"obj"];
+//    NSURL* url = @"";
+//    [MDLAsset alloc]initWithURL:<#(nullable NSURL *)#> vertexDescriptor:<#(nullable MDLVertexDescriptor *)#> bufferAllocator:<#(nullable id<MDLMeshBufferAllocator>)#>
+    
+    MDLMesh* mdl_mesh = [[MDLMesh alloc] initConeWithExtent:cone_extent
+                                                   segments:segments
+                                              inwardNormals:false
+                                            cap: true
+                                            geometryType:MDLGeometryTypeTriangles
+                                              allocator:mesh_buffer_allocator];
     
     NSError* err = nullptr;
     
