@@ -7,6 +7,12 @@
 
 #import <MetalKit/MetalKit.h>
 
+#import <CoreVideo/CVMetalTextureCache.h>
+#import <AVFoundation/AVCaptureDevice.h>
+#import <AVFoundation/AVCaptureInput.h>
+#import <AVFoundation/AVCaptureSession.h>
+#import <AVFoundation/AVCaptureVideoDataOutput.h>
+
 @interface MTKCameraTextureRenderer : NSViewController<MTKViewDelegate>
 {
     id<MTLDevice> device;
