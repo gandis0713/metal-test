@@ -31,6 +31,13 @@
 		1799A0752896A48400546FC3 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A03A289374DB00546FC3 /* AppKit.framework */; };
 		1799A0762896A48800546FC3 /* ModelIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A06128968FF800546FC3 /* ModelIO.framework */; };
 		1799A0792896A4EC00546FC3 /* MTK3DModelRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1799A0772896A4EC00546FC3 /* MTK3DModelRenderer.mm */; };
+		17D9AE3028BCDE03004F10EC /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 17D9AE2E28BCDDE8004F10EC /* main.mm */; };
+		17D9AE3128BCDE03004F10EC /* MTKCameraTextureRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 17D9AE2D28BCDDE8004F10EC /* MTKCameraTextureRenderer.mm */; };
+		17D9AE3228BCDE16004F10EC /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A03A289374DB00546FC3 /* AppKit.framework */; };
+		17D9AE3328BCDE1C004F10EC /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A0382893710D00546FC3 /* Metal.framework */; };
+		17D9AE3428BCDE1C004F10EC /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A03428936C2A00546FC3 /* MetalKit.framework */; };
+		17D9AE3528BCDE33004F10EC /* ModelIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A06128968FF800546FC3 /* ModelIO.framework */; };
+		17D9AE3728BCDE8A004F10EC /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D9AE3628BCDE8A004F10EC /* CoreVideo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -70,6 +77,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		17D9AE2128BCDCFB004F10EC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +110,11 @@
 		1799A06E2896A46600546FC3 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		1799A0772896A4EC00546FC3 /* MTK3DModelRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MTK3DModelRenderer.mm; sourceTree = "<group>"; };
 		1799A0782896A4EC00546FC3 /* MTK3DModelRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTK3DModelRenderer.h; sourceTree = "<group>"; };
+		17D9AE2328BCDCFB004F10EC /* camera_to_texture */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = camera_to_texture; sourceTree = BUILT_PRODUCTS_DIR; };
+		17D9AE2D28BCDDE8004F10EC /* MTKCameraTextureRenderer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MTKCameraTextureRenderer.mm; sourceTree = "<group>"; };
+		17D9AE2E28BCDDE8004F10EC /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		17D9AE2F28BCDDE8004F10EC /* MTKCameraTextureRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTKCameraTextureRenderer.h; sourceTree = "<group>"; };
+		17D9AE3628BCDE8A004F10EC /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,12 +162,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		17D9AE2028BCDCFB004F10EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17D9AE3428BCDE1C004F10EC /* MetalKit.framework in Frameworks */,
+				17D9AE3328BCDE1C004F10EC /* Metal.framework in Frameworks */,
+				17D9AE3528BCDE33004F10EC /* ModelIO.framework in Frameworks */,
+				17D9AE3228BCDE16004F10EC /* AppKit.framework in Frameworks */,
+				17D9AE3728BCDE8A004F10EC /* CoreVideo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		1799A02028936B4E00546FC3 = {
 			isa = PBXGroup;
 			children = (
+				17D9AE2C28BCDDE8004F10EC /* camera_to_texture */,
 				1799A02B28936B4E00546FC3 /* clear_color */,
 				1799A0452893947900546FC3 /* triangle */,
 				1799A05928968C7200546FC3 /* model */,
@@ -163,6 +197,7 @@
 				1799A0442893947900546FC3 /* triangle */,
 				1799A05828968C7200546FC3 /* model */,
 				1799A06C2896A46600546FC3 /* 3d_model */,
+				17D9AE2328BCDCFB004F10EC /* camera_to_texture */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -180,6 +215,7 @@
 		1799A03328936C2A00546FC3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				17D9AE3628BCDE8A004F10EC /* CoreVideo.framework */,
 				1799A06128968FF800546FC3 /* ModelIO.framework */,
 				1799A03A289374DB00546FC3 /* AppKit.framework */,
 				1799A0382893710D00546FC3 /* Metal.framework */,
@@ -217,6 +253,16 @@
 				1799A0772896A4EC00546FC3 /* MTK3DModelRenderer.mm */,
 			);
 			path = 3d_model;
+			sourceTree = "<group>";
+		};
+		17D9AE2C28BCDDE8004F10EC /* camera_to_texture */ = {
+			isa = PBXGroup;
+			children = (
+				17D9AE2E28BCDDE8004F10EC /* main.mm */,
+				17D9AE2F28BCDDE8004F10EC /* MTKCameraTextureRenderer.h */,
+				17D9AE2D28BCDDE8004F10EC /* MTKCameraTextureRenderer.mm */,
+			);
+			path = camera_to_texture;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,6 +336,23 @@
 			productReference = 1799A06C2896A46600546FC3 /* 3d_model */;
 			productType = "com.apple.product-type.tool";
 		};
+		17D9AE2228BCDCFB004F10EC /* camera_to_texture */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17D9AE2928BCDCFB004F10EC /* Build configuration list for PBXNativeTarget "camera_to_texture" */;
+			buildPhases = (
+				17D9AE1F28BCDCFB004F10EC /* Sources */,
+				17D9AE2028BCDCFB004F10EC /* Frameworks */,
+				17D9AE2128BCDCFB004F10EC /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = camera_to_texture;
+			productName = camera_to_texture;
+			productReference = 17D9AE2328BCDCFB004F10EC /* camera_to_texture */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -311,6 +374,9 @@
 					1799A06B2896A46600546FC3 = {
 						CreatedOnToolsVersion = 13.4;
 					};
+					17D9AE2228BCDCFB004F10EC = {
+						CreatedOnToolsVersion = 13.4;
+					};
 				};
 			};
 			buildConfigurationList = 1799A02428936B4E00546FC3 /* Build configuration list for PBXProject "metal-test" */;
@@ -330,6 +396,7 @@
 				1799A0432893947900546FC3 /* triangle */,
 				1799A05728968C7200546FC3 /* model */,
 				1799A06B2896A46600546FC3 /* 3d_model */,
+				17D9AE2228BCDCFB004F10EC /* camera_to_texture */,
 			);
 		};
 /* End PBXProject section */
@@ -368,6 +435,15 @@
 			files = (
 				1799A0792896A4EC00546FC3 /* MTK3DModelRenderer.mm in Sources */,
 				1799A06F2896A46600546FC3 /* main.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		17D9AE1F28BCDCFB004F10EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17D9AE3028BCDE03004F10EC /* main.mm in Sources */,
+				17D9AE3128BCDE03004F10EC /* MTKCameraTextureRenderer.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,6 +623,22 @@
 			};
 			name = Release;
 		};
+		17D9AE2728BCDCFB004F10EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		17D9AE2828BCDCFB004F10EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -591,6 +683,15 @@
 			buildConfigurations = (
 				1799A0702896A46600546FC3 /* Debug */,
 				1799A0712896A46600546FC3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		17D9AE2928BCDCFB004F10EC /* Build configuration list for PBXNativeTarget "camera_to_texture" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17D9AE2728BCDCFB004F10EC /* Debug */,
+				17D9AE2828BCDCFB004F10EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
