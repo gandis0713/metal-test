@@ -26,19 +26,14 @@
     CVMetalTextureCacheRef cvMetalTextureCacheRef;
     CVMetalTextureRef cvMetalTextureRef;
     id<MTLDevice> device;
-    id<MTLTexture> texture;
-
-//    @property (nonatomic, strong) AVCaptureVideoDataOutput *videoDataOutput;
-
-//    @property (nonatomic, strong) AVCaptureConnection *videoConnection;
+    id<MTLTexture> texture0;
+    id<MTLTexture> texture1;
 }
 
 
 -(id)initWithDevice:(id<MTLDevice>) device;
-//- (void)captureOutput:(AVCaptureOutput *)output
-//didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
-//       fromConnection:(AVCaptureConnection *)connection;
--(id)getMetalTexture;
+-(id)getMetalTexture0;
+-(id)getMetalTexture1;
 
 @end
 

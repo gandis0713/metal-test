@@ -17,7 +17,7 @@ int main(int argc, const char * argv[])
         NSRect viewRect = NSMakeRect(0, 0, 1280, 720);
         
         MTKCameraTextureRenderer* camera_texture_renderer = [[MTKCameraTextureRenderer alloc]initWithDevice:device];
-//        [camera_texture_renderer createTexture];
+        [camera_texture_renderer createTexture];
         [camera_texture_renderer buildBuffers];
         [camera_texture_renderer buildShaders];
         

@@ -9,6 +9,7 @@
 #import <dispatch/dispatch.h>
 #import <CoreFoundation/CoreFoundation.h>
 #import <Metal/Metal.h>
+//#import <CoreVideo/CoreVideoCVPixelBuffer.h>
 
 @implementation CameraSession
 
@@ -18,14 +19,14 @@
     
     device = devices;
     
-    [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
-        if (granted) {
-            //self.microphoneConsentState = PrivacyConsentStateGranted;
-        }
-        else {
-            //self.microphoneConsentState = PrivacyConsentStateDenied;
-        }
-    }];
+//    [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+//        if (granted) {
+//            //self.microphoneConsentState = PrivacyConsentStateGranted;
+//        }
+//        else {
+//            //self.microphoneConsentState = PrivacyConsentStateDenied;
+//        }
+//    }];
     
     captureSession = [[AVCaptureSession alloc] init];
     captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
@@ -51,7 +52,7 @@
 
     dispatch_set_target_queue(videoDataOutputQueue, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0));
 
-    videoConnection = [captureVideoDataOutput connectionWithMediaType:AVMediaTypeVideo];
+//    videoConnection = [captureVideoDataOutput connectionWithMediaType:AVMediaTypeVideo];
     
     [captureVideoDataOutput setAlwaysDiscardsLateVideoFrames:(BOOL)true];
     
@@ -85,23 +86,54 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     {
         NSLog(@"CVMetalTextureCacheCreate result : %d", result);
     }
-    
+
     CVImageBufferRef imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
-    
+
     size_t width = CVPixelBufferGetWidth(imageBuffer);
     size_t height = CVPixelBufferGetHeight(imageBuffer);
+    size_t planeCount = CVPixelBufferGetPlaneCount(imageBuffer);
+//    NSLog(@"CVImageBufferRef: ");
+//    NSLog(@"    planeCount: %ld", planeCount);
     
-    result = CVMetalTextureCacheCreateTextureFromImage(kCFAllocatorDefault, cvMetalTextureCacheRef, imageBuffer, nil, MTLPixelFormatBGRA8Unorm_sRGB, width, height, 0, &cvMetalTextureRef);
+//    MTLPixelFormat pixelFormat = MTLPixelFormatBGRA8Unorm_sRGB;
+    MTLPixelFormat pixelFormat = MTLPixelFormatR8Unorm_sRGB;
+//    MTLPixelFormat pixelFormat = MTLPixelFormatRG8Unorm_sRGB;
+//    MTLPixelFormat pixelFormat = MTLPixelFormatRGBA8Unorm_sRGB;
+//    MTLPixelFormat pixelFormat = MTLPixelFormatBGRG422;
+//    MTLPixelFormat pixelFormat = MTLPixelFormatGBGR422;
+    
+    result = CVMetalTextureCacheCreateTextureFromImage(kCFAllocatorDefault, cvMetalTextureCacheRef, imageBuffer, nil, MTLPixelFormatR8Unorm_sRGB, width, height, 0, &cvMetalTextureRef);
     if(result != kCVReturnSuccess)
     {
-        NSLog(@"CVMetalTextureCacheCreateTextureFromImage result : %d", result);
+        NSLog(@"CVMetalTextureCacheCreateTextureFromImage 0 result : %d", result);
     }
+    texture0 = CVMetalTextureGetTexture(cvMetalTextureRef);
     
-    texture = CVMetalTextureGetTexture(cvMetalTextureRef);
+    result = CVMetalTextureCacheCreateTextureFromImage(kCFAllocatorDefault, cvMetalTextureCacheRef, imageBuffer, nil, MTLPixelFormatRG8Unorm_sRGB, width, height, 1, &cvMetalTextureRef);
+    if(result != kCVReturnSuccess)
+    {
+        NSLog(@"CVMetalTextureCacheCreateTextureFromImage 1 result : %d", result);
+    }
+    texture1 = CVMetalTextureGetTexture(cvMetalTextureRef);
+    
+    // memory leak
+    CFRelease(cvMetalTextureCacheRef);
+    CVBufferRelease( cvMetalTextureRef );
+    
+//    NSLog(@"texture: ");
+//    NSLog(@"    width: %ld", [texture width]);
+//    NSLog(@"    height: %ld", [texture height]);
+//    NSLog(@"    depth: %ld", [texture depth]);
+//    NSLog(@"    pixelFormat: %ld", [texture pixelFormat]);
 }
 
--(id) getMetalTexture
+-(id) getMetalTexture0
 {
-    return texture;
+    return texture0;
+}
+
+-(id) getMetalTexture1
+{
+    return texture1;
 }
 @end

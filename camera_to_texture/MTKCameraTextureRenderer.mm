@@ -27,66 +27,18 @@
 -(void) buildShaders
 {
     NSError* err = nullptr;
-    
-    NSString* source = [NSString stringWithString:@R"(
-        #include <metal_stdlib>
-        using namespace metal;
-    
-        struct RasterizerData
-        {
-            float4 position [[position]];
-            float2 textureCoordinate;
-        };
-    
-        typedef struct
-        {
-            vector_float2 position;
-            vector_float2 textureCoordinate;
-        } TextureVertex;
 
-        // vertex shader
-        vertex RasterizerData
-        vertexMain(uint vertexID [[ vertex_id ]],
-                     constant TextureVertex *vertexArray [[ buffer(0) ]])
-
-        {
-
-            RasterizerData out;
-            
-            out.position = vector_float4(vertexArray[vertexID].position, 0.0, 1.0);
-            // out.position.xy = vertexArray[vertexID].position.xy;
-            out.textureCoordinate = vertexArray[vertexID].textureCoordinate;
-
-            return out;
-        }
-
-        // Fragment function
-        fragment float4
-        fragmentMain(RasterizerData in [[stage_in]],
-                       texture2d<half> colorTexture [[ texture(0) ]])
-        {
-            constexpr sampler textureSampler (mag_filter::linear,
-                                              min_filter::linear);
-
-            const half4 colorSample = colorTexture.sample(textureSampler, in.textureCoordinate);
-
-            return float4(colorSample);
-//            return float4(1.0, 0.0, 0.0, 1.0);
-        }
-
-    )"];
-
-    NSLog(@"%@", source);
-
-    id<MTLLibrary> library = [device newLibraryWithSource:source
-                                                  options:nullptr
-                                                    error:&err];
+//    id<MTLLibrary> library = [device newLibraryWithSource:source
+//                                                  options:nullptr
+//                                                    error:&err];
+    id<MTLLibrary> library = [device newDefaultLibrary];
 
     if(!library)
     {
         NSLog(@"Failed to create library [error : %@]", err);
         assert(false);
     }
+    
 
     id<MTLFunction> vertex_function = [library newFunctionWithName:@"vertexMain"];
     id<MTLFunction> fragment_function = [library newFunctionWithName:@"fragmentMain"];
@@ -114,7 +66,7 @@
         vector_float2 textureCoordinate;
     } TextureVertex;
     
-    const float position = 0.5;
+    const float position = 1;
     
     static const TextureVertex quadVertices[] =
     {
@@ -168,7 +120,7 @@
     textureDescriptor.height = image.height;
 
     // Create the texture from the device by using the descriptor
-    texture = [device newTextureWithDescriptor:textureDescriptor];
+    texture0 = [device newTextureWithDescriptor:textureDescriptor];
     
     
     // Calculate the number of bytes per row in the image.
@@ -180,7 +132,7 @@
     };
     
     // Copy the bytes from the data object into the texture
-    [texture replaceRegion:region
+    [texture0 replaceRegion:region
              mipmapLevel:0
              withBytes:image.data
              bytesPerRow:bytesPerRow];
@@ -196,7 +148,8 @@
 //    NSLog(@"drawInMTKView");
     @autoreleasepool
     {
-        texture = [cameraSession getMetalTexture];
+        texture0 = [cameraSession getMetalTexture0];
+        texture1 = [cameraSession getMetalTexture0];
         
         MTLRenderPassDescriptor* render_pass_descriptor = [view currentRenderPassDescriptor];
         
@@ -205,8 +158,10 @@
         
         [render_command_encoder setRenderPipelineState:render_pipeline_state];
         [render_command_encoder setVertexBuffer:vertices offset:0 atIndex:0];
-        [render_command_encoder setFragmentTexture:texture
+        [render_command_encoder setFragmentTexture:texture0
                                   atIndex:0];
+        [render_command_encoder setFragmentTexture:texture1
+                                  atIndex:1];
         [render_command_encoder drawPrimitives:MTLPrimitiveTypeTriangle vertexStart:0 vertexCount:6];
         [render_command_encoder endEncoding];
         

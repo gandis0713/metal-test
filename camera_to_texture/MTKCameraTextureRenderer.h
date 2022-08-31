@@ -14,7 +14,8 @@
     id<MTLCommandQueue> command_queue;
     id<MTLRenderPipelineState> render_pipeline_state;
     id<MTLBuffer> vertices;
-    id<MTLTexture> texture;
+    id<MTLTexture> texture0;
+    id<MTLTexture> texture1;
     CameraSession* cameraSession;
 }
 
