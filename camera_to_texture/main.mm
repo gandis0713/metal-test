@@ -6,6 +6,8 @@
 //
 
 #import "MTKCameraTextureRenderer.h"
+#import "CameraSession.h"
+#import "VideoSampleBufferDelegate.h"
 
 int main(int argc, const char * argv[])
 {
@@ -41,6 +43,10 @@ int main(int argc, const char * argv[])
         [window orderFrontRegardless];
         
         [NSApp setActivationPolicy:NSApplicationActivationPolicyRegular];
+        
+        
+        CameraSession* cameraSession = [[CameraSession alloc]initWithDevice:device];
+        
         [NSApp run];
     }
     return 0;

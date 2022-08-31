@@ -6,29 +6,6 @@
 //
 
 #import "MTKCameraTextureRenderer.h"
-#import <dispatch/queue.h>
-
-@interface VideoSampleBufferDelegate: NSObject
-
-@end
-
-@interface VideoSampleBufferDelegate() <AVCaptureVideoDataOutputSampleBufferDelegate>
-
-@property (nonatomic, strong) dispatch_queue_t videoDataOutputQueue;
-
-@property (nonatomic, strong) AVCaptureVideoDataOutput *videoDataOutput;
-
-@property (nonatomic, strong) AVCaptureConnection *videoConnection;
-
-@end
-
-@implementation VideoSampleBufferDelegate
-
-- (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection
-{
-    NSLog(@"didOutputSampleBuffer");
-}
-@end
 
 @implementation MTKCameraTextureRenderer
 
@@ -42,46 +19,14 @@
     
     command_queue = [device newCommandQueue];
     
+
+    
     return self;
 }
 
 -(void) buildShaders
 {
     NSError* err = nullptr;
-    
-    AVCaptureSession* captureSession = [[AVCaptureSession alloc] init];
-    AVCaptureDevice* captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    
-    AVCaptureDeviceInput* captureDeviceInput = [[AVCaptureDeviceInput alloc] initWithDevice:captureDevice error:nullptr];
-    AVCaptureVideoDataOutput* captureVideoDataOutput = [[AVCaptureVideoDataOutput alloc]init];
-    
-    
-    [captureSession beginConfiguration];
-    if([captureSession canAddInput:captureDeviceInput])
-    {
-        [captureSession addInput:captureDeviceInput];
-    }
-    
-    if([captureSession canAddOutput:captureVideoDataOutput])
-    {
-        [captureSession addOutput:captureVideoDataOutput];
-    }
-    
-//    VideoSampleBufferDelegate* videoSampleBufferDelegate = [[VideoSampleBufferDelegate alloc]init];
-//    videoSampleBufferDelegate.videoDataOutputQueue = dispatch_queue_create("com.example.capturesession.videodata", DISPATCH_QUEUE_SERIAL);
-//
-//    dispatch_set_target_queue(videoSampleBufferDelegate.videoDataOutputQueue, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0));
-//
-//    videoSampleBufferDelegate.videoConnection = [captureVideoDataOutput connectionWithMediaType:AVMediaTypeVideo];
-//
-//    [captureVideoDataOutput setSampleBufferDelegate:videoSampleBufferDelegate queue:videoSampleBufferDelegate.videoDataOutputQueue];
-//
-//
-    [captureSession commitConfiguration];
-    [captureSession startRunning];
-    
-    CVMetalTextureCacheRef* metalTextureCache = nil;
-    CVMetalTextureCacheCreate(kCFAllocatorDefault, nil, device, nil, metalTextureCache);
     
     NSString* source = [NSString stringWithString:@R"(
         #include <metal_stdlib>
@@ -265,5 +210,10 @@
         [command_buffer presentDrawable:view.currentDrawable];
         [command_buffer commit];
     }
+}
+
+-(id) getDevice
+{
+    return device;
 }
 @end

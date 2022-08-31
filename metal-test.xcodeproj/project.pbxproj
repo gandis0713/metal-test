@@ -39,6 +39,8 @@
 		17D9AE3528BCDE33004F10EC /* ModelIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A06128968FF800546FC3 /* ModelIO.framework */; };
 		17D9AE3728BCDE8A004F10EC /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D9AE3628BCDE8A004F10EC /* CoreVideo.framework */; };
 		17D9AE3928BCFCF3004F10EC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D9AE3828BCFCF3004F10EC /* AVFoundation.framework */; };
+		17D9AE3E28BF1B9B004F10EC /* CameraSession.mm in Sources */ = {isa = PBXBuildFile; fileRef = 17D9AE3D28BF1B9B004F10EC /* CameraSession.mm */; };
+		17D9AE4128BF1E79004F10EC /* VideoSampleBufferDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 17D9AE4028BF1E79004F10EC /* VideoSampleBufferDelegate.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -117,6 +119,11 @@
 		17D9AE2F28BCDDE8004F10EC /* MTKCameraTextureRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTKCameraTextureRenderer.h; sourceTree = "<group>"; };
 		17D9AE3628BCDE8A004F10EC /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		17D9AE3828BCFCF3004F10EC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		17D9AE3B28BF172E004F10EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17D9AE3C28BF1B84004F10EC /* CameraSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraSession.h; sourceTree = "<group>"; };
+		17D9AE3D28BF1B9B004F10EC /* CameraSession.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CameraSession.mm; sourceTree = "<group>"; };
+		17D9AE3F28BF1E59004F10EC /* VideoSampleBufferDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoSampleBufferDelegate.h; sourceTree = "<group>"; };
+		17D9AE4028BF1E79004F10EC /* VideoSampleBufferDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = VideoSampleBufferDelegate.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +272,11 @@
 				17D9AE2E28BCDDE8004F10EC /* main.mm */,
 				17D9AE2F28BCDDE8004F10EC /* MTKCameraTextureRenderer.h */,
 				17D9AE2D28BCDDE8004F10EC /* MTKCameraTextureRenderer.mm */,
+				17D9AE3B28BF172E004F10EC /* Info.plist */,
+				17D9AE3C28BF1B84004F10EC /* CameraSession.h */,
+				17D9AE3D28BF1B9B004F10EC /* CameraSession.mm */,
+				17D9AE3F28BF1E59004F10EC /* VideoSampleBufferDelegate.h */,
+				17D9AE4028BF1E79004F10EC /* VideoSampleBufferDelegate.mm */,
 			);
 			path = camera_to_texture;
 			sourceTree = "<group>";
@@ -446,8 +458,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17D9AE4128BF1E79004F10EC /* VideoSampleBufferDelegate.mm in Sources */,
 				17D9AE3028BCDE03004F10EC /* main.mm in Sources */,
 				17D9AE3128BCDE03004F10EC /* MTKCameraTextureRenderer.mm in Sources */,
+				17D9AE3E28BF1B9B004F10EC /* CameraSession.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,6 +645,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "$(SRCROOT)/camera_to_texture/Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -639,6 +654,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "$(SRCROOT)/camera_to_texture/Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
