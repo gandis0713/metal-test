@@ -40,7 +40,8 @@
 		17D9AE3728BCDE8A004F10EC /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D9AE3628BCDE8A004F10EC /* CoreVideo.framework */; };
 		17D9AE3928BCFCF3004F10EC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D9AE3828BCFCF3004F10EC /* AVFoundation.framework */; };
 		17D9AE3E28BF1B9B004F10EC /* CameraSession.mm in Sources */ = {isa = PBXBuildFile; fileRef = 17D9AE3D28BF1B9B004F10EC /* CameraSession.mm */; };
-		17D9AE4128BF1E79004F10EC /* VideoSampleBufferDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 17D9AE4028BF1E79004F10EC /* VideoSampleBufferDelegate.mm */; };
+		17D9AE4328BF24AA004F10EC /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D9AE4228BF24AA004F10EC /* CoreFoundation.framework */; };
+		17D9AE4528BF252A004F10EC /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D9AE4428BF252A004F10EC /* CoreMedia.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -122,8 +123,8 @@
 		17D9AE3B28BF172E004F10EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17D9AE3C28BF1B84004F10EC /* CameraSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraSession.h; sourceTree = "<group>"; };
 		17D9AE3D28BF1B9B004F10EC /* CameraSession.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CameraSession.mm; sourceTree = "<group>"; };
-		17D9AE3F28BF1E59004F10EC /* VideoSampleBufferDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoSampleBufferDelegate.h; sourceTree = "<group>"; };
-		17D9AE4028BF1E79004F10EC /* VideoSampleBufferDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = VideoSampleBufferDelegate.mm; sourceTree = "<group>"; };
+		17D9AE4228BF24AA004F10EC /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		17D9AE4428BF252A004F10EC /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,9 +176,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17D9AE4528BF252A004F10EC /* CoreMedia.framework in Frameworks */,
 				17D9AE3428BCDE1C004F10EC /* MetalKit.framework in Frameworks */,
 				17D9AE3328BCDE1C004F10EC /* Metal.framework in Frameworks */,
 				17D9AE3928BCFCF3004F10EC /* AVFoundation.framework in Frameworks */,
+				17D9AE4328BF24AA004F10EC /* CoreFoundation.framework in Frameworks */,
 				17D9AE3528BCDE33004F10EC /* ModelIO.framework in Frameworks */,
 				17D9AE3228BCDE16004F10EC /* AppKit.framework in Frameworks */,
 				17D9AE3728BCDE8A004F10EC /* CoreVideo.framework in Frameworks */,
@@ -225,6 +228,8 @@
 		1799A03328936C2A00546FC3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				17D9AE4428BF252A004F10EC /* CoreMedia.framework */,
+				17D9AE4228BF24AA004F10EC /* CoreFoundation.framework */,
 				17D9AE3828BCFCF3004F10EC /* AVFoundation.framework */,
 				17D9AE3628BCDE8A004F10EC /* CoreVideo.framework */,
 				1799A06128968FF800546FC3 /* ModelIO.framework */,
@@ -275,8 +280,6 @@
 				17D9AE3B28BF172E004F10EC /* Info.plist */,
 				17D9AE3C28BF1B84004F10EC /* CameraSession.h */,
 				17D9AE3D28BF1B9B004F10EC /* CameraSession.mm */,
-				17D9AE3F28BF1E59004F10EC /* VideoSampleBufferDelegate.h */,
-				17D9AE4028BF1E79004F10EC /* VideoSampleBufferDelegate.mm */,
 			);
 			path = camera_to_texture;
 			sourceTree = "<group>";
@@ -458,7 +461,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17D9AE4128BF1E79004F10EC /* VideoSampleBufferDelegate.mm in Sources */,
 				17D9AE3028BCDE03004F10EC /* main.mm in Sources */,
 				17D9AE3128BCDE03004F10EC /* MTKCameraTextureRenderer.mm in Sources */,
 				17D9AE3E28BF1B9B004F10EC /* CameraSession.mm in Sources */,

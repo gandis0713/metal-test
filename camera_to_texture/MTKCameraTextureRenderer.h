@@ -6,6 +6,7 @@
 //
 
 #import <MetalKit/MetalKit.h>
+#import "CameraSession.h"
 
 @interface MTKCameraTextureRenderer : NSViewController<MTKViewDelegate>
 {
@@ -14,12 +15,12 @@
     id<MTLRenderPipelineState> render_pipeline_state;
     id<MTLBuffer> vertices;
     id<MTLTexture> texture;
+    CameraSession* cameraSession;
 }
 
 -(id)initWithDevice:(id<MTLDevice>) device;
 -(void)buildShaders;
 -(void)buildBuffers;
 -(void)createTexture;
--(id)getDevice;
 
 @end

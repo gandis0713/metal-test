@@ -7,12 +7,16 @@
 
 #import "CameraSession.h"
 #import <dispatch/dispatch.h>
+#import <CoreFoundation/CoreFoundation.h>
+#import <Metal/Metal.h>
 
 @implementation CameraSession
 
--(id)initWithDevice:(id<MTLDevice>) device
+-(id)initWithDevice:(id<MTLDevice>) devices
 {
     self = [super init];
+    
+    device = devices;
     
     [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
         if (granted) {
@@ -43,16 +47,20 @@
         [captureSession addInput:captureDeviceInput];
     }
     
-    videoSampleBufferDelegate = [[VideoSampleBufferDelegate alloc]init];
-    videoSampleBufferDelegate.videoDataOutputQueue = dispatch_queue_create("com.charles.camera", DISPATCH_QUEUE_SERIAL);
+    videoDataOutputQueue = dispatch_queue_create("com.charles.camera", DISPATCH_QUEUE_SERIAL);
 
-    dispatch_set_target_queue(videoSampleBufferDelegate.videoDataOutputQueue, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0));
+    dispatch_set_target_queue(videoDataOutputQueue, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0));
 
-    videoSampleBufferDelegate.videoConnection = [captureVideoDataOutput connectionWithMediaType:AVMediaTypeVideo];
+    videoConnection = [captureVideoDataOutput connectionWithMediaType:AVMediaTypeVideo];
     
     [captureVideoDataOutput setAlwaysDiscardsLateVideoFrames:(BOOL)true];
-    [captureVideoDataOutput setSampleBufferDelegate:videoSampleBufferDelegate queue:videoSampleBufferDelegate.videoDataOutputQueue];
     
+    // https://stackoverflow.com/questions/46549906/cvmetaltexturecachecreatetexturefromimage-returns-6660-on-macos-10-13
+    captureVideoDataOutput.videoSettings = @{
+        (NSString *)kCVPixelBufferMetalCompatibilityKey: @YES
+    };
+    
+    [captureVideoDataOutput setSampleBufferDelegate:self queue:videoDataOutputQueue];
     
     if([captureSession canAddOutput:captureVideoDataOutput])
     {
@@ -62,10 +70,38 @@
     [captureSession commitConfiguration];
     [captureSession startRunning];
     
-    CVMetalTextureCacheRef* metalTextureCache = nil;
-    CVMetalTextureCacheCreate(kCFAllocatorDefault, nil, device, nil, metalTextureCache);
-    
+
     return self;
 }
 
+- (void)captureOutput:(AVCaptureOutput *)output
+didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
+       fromConnection:(AVCaptureConnection *)connection
+{
+//    NSLog(@"didOutputSampleBuffer");
+
+    CVReturn result = CVMetalTextureCacheCreate(kCFAllocatorDefault, nil, device, nil, &cvMetalTextureCacheRef);
+    if(result != kCVReturnSuccess)
+    {
+        NSLog(@"CVMetalTextureCacheCreate result : %d", result);
+    }
+    
+    CVImageBufferRef imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
+    
+    size_t width = CVPixelBufferGetWidth(imageBuffer);
+    size_t height = CVPixelBufferGetHeight(imageBuffer);
+    
+    result = CVMetalTextureCacheCreateTextureFromImage(kCFAllocatorDefault, cvMetalTextureCacheRef, imageBuffer, nil, MTLPixelFormatBGRA8Unorm_sRGB, width, height, 0, &cvMetalTextureRef);
+    if(result != kCVReturnSuccess)
+    {
+        NSLog(@"CVMetalTextureCacheCreateTextureFromImage result : %d", result);
+    }
+    
+    texture = CVMetalTextureGetTexture(cvMetalTextureRef);
+}
+
+-(id) getMetalTexture
+{
+    return texture;
+}
 @end

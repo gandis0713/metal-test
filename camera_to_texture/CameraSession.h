@@ -14,19 +14,31 @@
 #import <AVFoundation/AVCaptureInput.h>
 #import <AVFoundation/AVCaptureSession.h>
 #import <AVFoundation/AVCaptureVideoDataOutput.h>
-#import "VideoSampleBufferDelegate.h"
 
-@interface CameraSession: NSObject
+@interface CameraSession: NSObject<AVCaptureVideoDataOutputSampleBufferDelegate>
 {
-    VideoSampleBufferDelegate* videoSampleBufferDelegate;
     AVCaptureSession* captureSession;
     AVCaptureDevice* captureDevice;
     AVCaptureDeviceInput* captureDeviceInput;
     AVCaptureVideoDataOutput* captureVideoDataOutput;
+    dispatch_queue_t videoDataOutputQueue;
+    AVCaptureConnection *videoConnection;
+    CVMetalTextureCacheRef cvMetalTextureCacheRef;
+    CVMetalTextureRef cvMetalTextureRef;
+    id<MTLDevice> device;
+    id<MTLTexture> texture;
+
+//    @property (nonatomic, strong) AVCaptureVideoDataOutput *videoDataOutput;
+
+//    @property (nonatomic, strong) AVCaptureConnection *videoConnection;
 }
 
 
 -(id)initWithDevice:(id<MTLDevice>) device;
+//- (void)captureOutput:(AVCaptureOutput *)output
+//didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
+//       fromConnection:(AVCaptureConnection *)connection;
+-(id)getMetalTexture;
 
 @end
 

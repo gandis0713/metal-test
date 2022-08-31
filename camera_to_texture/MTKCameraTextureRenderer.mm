@@ -19,7 +19,7 @@
     
     command_queue = [device newCommandQueue];
     
-
+    cameraSession = [[CameraSession alloc]initWithDevice:device];
     
     return self;
 }
@@ -68,7 +68,7 @@
             constexpr sampler textureSampler (mag_filter::linear,
                                               min_filter::linear);
 
-            const half4 colorSample = colorTexture.sample(textureSampler, float2(0.5, 0.5));
+            const half4 colorSample = colorTexture.sample(textureSampler, in.textureCoordinate);
 
             return float4(colorSample);
 //            return float4(1.0, 0.0, 0.0, 1.0);
@@ -144,11 +144,11 @@
         uint32_t height = 256;
         uint8_t* data = nullptr;
     };
-    
+
     SImage image;
     image.data = new uint8_t[image.width * 4 * image.height * 4];
 //    memset(image.data, 0, 1024 * 1024);
-    
+
     for(int i = 0; i < image.width * 4 * image.height * 4; i += 4)
     {
         image.data[i + 0] = 0; // blue
@@ -156,7 +156,7 @@
         image.data[i + 2] = 255; // red
         image.data[i + 3] = 255;
     }
-    
+
     MTLTextureDescriptor *textureDescriptor = [[MTLTextureDescriptor alloc] init];
 
     // Indicate that each pixel has a blue, green, red, and alpha channel, where each channel is
@@ -169,6 +169,7 @@
 
     // Create the texture from the device by using the descriptor
     texture = [device newTextureWithDescriptor:textureDescriptor];
+    
     
     // Calculate the number of bytes per row in the image.
     NSUInteger bytesPerRow = 4 * image.width;
@@ -195,6 +196,8 @@
 //    NSLog(@"drawInMTKView");
     @autoreleasepool
     {
+        texture = [cameraSession getMetalTexture];
+        
         MTLRenderPassDescriptor* render_pass_descriptor = [view currentRenderPassDescriptor];
         
         id<MTLCommandBuffer> command_buffer = [command_queue commandBuffer];
@@ -212,8 +215,4 @@
     }
 }
 
--(id) getDevice
-{
-    return device;
-}
 @end
