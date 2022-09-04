@@ -80,6 +80,8 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
        fromConnection:(AVCaptureConnection *)connection
 {
 //    NSLog(@"didOutputSampleBuffer");
+    
+    CVMetalTextureRef cvMetalTextureRef;
 
     CVReturn result = CVMetalTextureCacheCreate(kCFAllocatorDefault, nil, device, nil, &cvMetalTextureCacheRef);
     if(result != kCVReturnSuccess)
@@ -91,34 +93,36 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 
     size_t width = CVPixelBufferGetWidth(imageBuffer);
     size_t height = CVPixelBufferGetHeight(imageBuffer);
-    size_t planeCount = CVPixelBufferGetPlaneCount(imageBuffer);
+//    size_t planeCount = CVPixelBufferGetPlaneCount(imageBuffer);
 //    NSLog(@"CVImageBufferRef: ");
 //    NSLog(@"    planeCount: %ld", planeCount);
     
 //    MTLPixelFormat pixelFormat = MTLPixelFormatBGRA8Unorm_sRGB;
-    MTLPixelFormat pixelFormat = MTLPixelFormatR8Unorm_sRGB;
+//    MTLPixelFormat pixelFormat = MTLPixelFormatR8Unorm_sRGB;
 //    MTLPixelFormat pixelFormat = MTLPixelFormatRG8Unorm_sRGB;
 //    MTLPixelFormat pixelFormat = MTLPixelFormatRGBA8Unorm_sRGB;
 //    MTLPixelFormat pixelFormat = MTLPixelFormatBGRG422;
 //    MTLPixelFormat pixelFormat = MTLPixelFormatGBGR422;
     
-    result = CVMetalTextureCacheCreateTextureFromImage(kCFAllocatorDefault, cvMetalTextureCacheRef, imageBuffer, nil, MTLPixelFormatR8Unorm_sRGB, width, height, 0, &cvMetalTextureRef);
+    result = CVMetalTextureCacheCreateTextureFromImage(kCFAllocatorDefault, cvMetalTextureCacheRef, imageBuffer, nil, MTLPixelFormatR8Unorm, width, height, 0, &cvMetalTextureRef);
     if(result != kCVReturnSuccess)
     {
         NSLog(@"CVMetalTextureCacheCreateTextureFromImage 0 result : %d", result);
     }
     texture0 = CVMetalTextureGetTexture(cvMetalTextureRef);
+    CVBufferRelease( cvMetalTextureRef );
     
-    result = CVMetalTextureCacheCreateTextureFromImage(kCFAllocatorDefault, cvMetalTextureCacheRef, imageBuffer, nil, MTLPixelFormatRG8Unorm_sRGB, width, height, 1, &cvMetalTextureRef);
+    result = CVMetalTextureCacheCreateTextureFromImage(kCFAllocatorDefault, cvMetalTextureCacheRef, imageBuffer, nil, MTLPixelFormatRG8Unorm, width / 2, height / 2, 1, &cvMetalTextureRef);
     if(result != kCVReturnSuccess)
     {
         NSLog(@"CVMetalTextureCacheCreateTextureFromImage 1 result : %d", result);
     }
     texture1 = CVMetalTextureGetTexture(cvMetalTextureRef);
     
-    // memory leak
-    CFRelease(cvMetalTextureCacheRef);
     CVBufferRelease( cvMetalTextureRef );
+    
+    // CFRelease muse be released after CVBufferRelease.
+    CFRelease(cvMetalTextureCacheRef);
     
 //    NSLog(@"texture: ");
 //    NSLog(@"    width: %ld", [texture width]);

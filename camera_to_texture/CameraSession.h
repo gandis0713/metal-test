@@ -24,7 +24,6 @@
     dispatch_queue_t videoDataOutputQueue;
     AVCaptureConnection *videoConnection;
     CVMetalTextureCacheRef cvMetalTextureCacheRef;
-    CVMetalTextureRef cvMetalTextureRef;
     id<MTLDevice> device;
     id<MTLTexture> texture0;
     id<MTLTexture> texture1;

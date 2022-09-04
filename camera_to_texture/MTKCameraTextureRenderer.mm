@@ -149,7 +149,7 @@
     @autoreleasepool
     {
         texture0 = [cameraSession getMetalTexture0];
-        texture1 = [cameraSession getMetalTexture0];
+        texture1 = [cameraSession getMetalTexture1];
         
         MTLRenderPassDescriptor* render_pass_descriptor = [view currentRenderPassDescriptor];
         
