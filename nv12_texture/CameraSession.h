@@ -24,15 +24,16 @@
     dispatch_queue_t videoDataOutputQueue;
     AVCaptureConnection *videoConnection;
     CVMetalTextureCacheRef cvMetalTextureCacheRef;
+    
     id<MTLDevice> device;
-    id<MTLTexture> texture0;
-    id<MTLTexture> texture1;
+    id<MTLTexture> textureY;
+    id<MTLTexture> textureCbCr;
 }
 
 
 -(id)initWithDevice:(id<MTLDevice>) device;
--(id)getMetalTexture0;
--(id)getMetalTexture1;
+-(id)getMetalTextureY;
+-(id)getMetalTextureCbCr;
 
 @end
 

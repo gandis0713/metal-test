@@ -8,7 +8,7 @@
 #import <MetalKit/MetalKit.h>
 #import "CameraSession.h"
 
-@interface MTKCameraTextureRenderer : NSViewController<MTKViewDelegate>
+@interface MTKNV12TextureRenderer : NSViewController<MTKViewDelegate>
 {
     id<MTLDevice> device;
     id<MTLCommandQueue> command_queue;

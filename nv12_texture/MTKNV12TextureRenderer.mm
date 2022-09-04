@@ -5,9 +5,9 @@
 //  Created by gandis on 2022/07/31.
 //
 
-#import "MTKCameraTextureRenderer.h"
+#import "MTKNV12TextureRenderer.h"
 
-@implementation MTKCameraTextureRenderer
+@implementation MTKNV12TextureRenderer
 
 -(id)initWithDevice:(id<MTLDevice>)_device
 {
@@ -40,8 +40,8 @@
     }
     
 
-    id<MTLFunction> vertex_function = [library newFunctionWithName:@"vertexMain"];
-    id<MTLFunction> fragment_function = [library newFunctionWithName:@"fragmentMain"];
+    id<MTLFunction> vertex_function = [library newFunctionWithName:@"vertexMain2"];
+    id<MTLFunction> fragment_function = [library newFunctionWithName:@"fragmentMain2"];
     
     MTLRenderPipelineDescriptor* render_pipeline_descriptor = [[MTLRenderPipelineDescriptor alloc]init];
     [render_pipeline_descriptor setVertexFunction:vertex_function];
@@ -148,8 +148,8 @@
 //    NSLog(@"drawInMTKView");
     @autoreleasepool
     {
-        texture0 = [cameraSession getMetalTexture0];
-        texture1 = [cameraSession getMetalTexture1];
+        id<MTLTexture> textureY = [cameraSession getMetalTextureY];
+        id<MTLTexture> textureCbCr = [cameraSession getMetalTextureCbCr];
         
         MTLRenderPassDescriptor* render_pass_descriptor = [view currentRenderPassDescriptor];
         
@@ -158,9 +158,9 @@
         
         [render_command_encoder setRenderPipelineState:render_pipeline_state];
         [render_command_encoder setVertexBuffer:vertices offset:0 atIndex:0];
-        [render_command_encoder setFragmentTexture:texture0
+        [render_command_encoder setFragmentTexture:textureY
                                   atIndex:0];
-        [render_command_encoder setFragmentTexture:texture1
+        [render_command_encoder setFragmentTexture:textureCbCr
                                   atIndex:1];
         [render_command_encoder drawPrimitives:MTLPrimitiveTypeTriangle vertexStart:0 vertexCount:6];
         [render_command_encoder endEncoding];

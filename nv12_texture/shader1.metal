@@ -5,20 +5,7 @@
 //  Created by gandis on 2022/08/31.
 //
 
-#include <metal_stdlib>
-using namespace metal;
-
-struct RasterizerData
-{
-    float4 position [[position]];
-    float2 textureCoordinate;
-};
-
-typedef struct
-{
-    vector_float2 position;
-    vector_float2 textureCoordinate;
-} TextureVertex;
+#include "shader.h"
 
 // vertex shader
 vertex RasterizerData

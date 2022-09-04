@@ -9,7 +9,6 @@
 #import <dispatch/dispatch.h>
 #import <CoreFoundation/CoreFoundation.h>
 #import <Metal/Metal.h>
-//#import <CoreVideo/CoreVideoCVPixelBuffer.h>
 
 @implementation CameraSession
 
@@ -79,8 +78,8 @@
 didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
        fromConnection:(AVCaptureConnection *)connection
 {
-//    NSLog(@"didOutputSampleBuffer");
-    
+    id<MTLTexture> texture0 = nil;
+    id<MTLTexture> texture1 = nil;
     CVMetalTextureRef cvMetalTextureRef;
 
     CVReturn result = CVMetalTextureCacheCreate(kCFAllocatorDefault, nil, device, nil, &cvMetalTextureCacheRef);
@@ -105,39 +104,43 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 //    MTLPixelFormat pixelFormat = MTLPixelFormatGBGR422;
     
     result = CVMetalTextureCacheCreateTextureFromImage(kCFAllocatorDefault, cvMetalTextureCacheRef, imageBuffer, nil, MTLPixelFormatR8Unorm, width, height, 0, &cvMetalTextureRef);
-    if(result != kCVReturnSuccess)
+    if(result == kCVReturnSuccess)
     {
-        NSLog(@"CVMetalTextureCacheCreateTextureFromImage 0 result : %d", result);
+        texture0 = CVMetalTextureGetTexture(cvMetalTextureRef);
     }
-    texture0 = CVMetalTextureGetTexture(cvMetalTextureRef);
+    
     CVBufferRelease( cvMetalTextureRef );
+    cvMetalTextureRef = nullptr;
     
     result = CVMetalTextureCacheCreateTextureFromImage(kCFAllocatorDefault, cvMetalTextureCacheRef, imageBuffer, nil, MTLPixelFormatRG8Unorm, width / 2, height / 2, 1, &cvMetalTextureRef);
-    if(result != kCVReturnSuccess)
+    if(result == kCVReturnSuccess)
     {
-        NSLog(@"CVMetalTextureCacheCreateTextureFromImage 1 result : %d", result);
+        texture1 = CVMetalTextureGetTexture(cvMetalTextureRef);
     }
-    texture1 = CVMetalTextureGetTexture(cvMetalTextureRef);
     
     CVBufferRelease( cvMetalTextureRef );
-    
-    // CFRelease muse be released after CVBufferRelease.
-    CFRelease(cvMetalTextureCacheRef);
+//    CFRelease(cvMetalTextureCacheRef);
     
 //    NSLog(@"texture: ");
 //    NSLog(@"    width: %ld", [texture width]);
 //    NSLog(@"    height: %ld", [texture height]);
 //    NSLog(@"    depth: %ld", [texture depth]);
 //    NSLog(@"    pixelFormat: %ld", [texture pixelFormat]);
+    
+    if(texture0 != nil && texture1 != nil)
+    {
+        textureY = texture0;
+        textureCbCr = texture1;
+    }
 }
 
--(id) getMetalTexture0
+-(id) getMetalTextureY
 {
-    return texture0;
+    return textureY;
 }
 
--(id) getMetalTexture1
+-(id) getMetalTextureCbCr
 {
-    return texture1;
+    return textureCbCr;
 }
 @end

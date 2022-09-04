@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		170CB41828C4C90E007B71B0 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 170CB41728C4C90E007B71B0 /* main.mm */; };
+		172DE9F128C4CB49008FB530 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A03A289374DB00546FC3 /* AppKit.framework */; };
+		172DE9F428C4CCCA008FB530 /* MTKRGBTextureRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 172DE9F328C4CCCA008FB530 /* MTKRGBTextureRenderer.mm */; };
+		172DE9F528C4CD1C008FB530 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A03428936C2A00546FC3 /* MetalKit.framework */; };
+		172DE9F628C4CD22008FB530 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A0382893710D00546FC3 /* Metal.framework */; };
+		172DE9F828C4CF6F008FB530 /* shader2.metal in Sources */ = {isa = PBXBuildFile; fileRef = 172DE9F728C4CF6F008FB530 /* shader2.metal */; };
+		172DE9FB28C4D0B6008FB530 /* shader.h in Sources */ = {isa = PBXBuildFile; fileRef = 172DE9FA28C4D072008FB530 /* shader.h */; };
 		1799A02D28936B4E00546FC3 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1799A02C28936B4E00546FC3 /* main.mm */; };
 		1799A03528936C2A00546FC3 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A03428936C2A00546FC3 /* MetalKit.framework */; };
 		1799A03728936FA000546FC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A03628936FA000546FC3 /* Foundation.framework */; };
@@ -32,7 +39,7 @@
 		1799A0762896A48800546FC3 /* ModelIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A06128968FF800546FC3 /* ModelIO.framework */; };
 		1799A0792896A4EC00546FC3 /* MTK3DModelRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1799A0772896A4EC00546FC3 /* MTK3DModelRenderer.mm */; };
 		17D9AE3028BCDE03004F10EC /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 17D9AE2E28BCDDE8004F10EC /* main.mm */; };
-		17D9AE3128BCDE03004F10EC /* MTKCameraTextureRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 17D9AE2D28BCDDE8004F10EC /* MTKCameraTextureRenderer.mm */; };
+		17D9AE3128BCDE03004F10EC /* MTKNV12TextureRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 17D9AE2D28BCDDE8004F10EC /* MTKNV12TextureRenderer.mm */; };
 		17D9AE3228BCDE16004F10EC /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A03A289374DB00546FC3 /* AppKit.framework */; };
 		17D9AE3328BCDE1C004F10EC /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A0382893710D00546FC3 /* Metal.framework */; };
 		17D9AE3428BCDE1C004F10EC /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A03428936C2A00546FC3 /* MetalKit.framework */; };
@@ -42,10 +49,19 @@
 		17D9AE3E28BF1B9B004F10EC /* CameraSession.mm in Sources */ = {isa = PBXBuildFile; fileRef = 17D9AE3D28BF1B9B004F10EC /* CameraSession.mm */; };
 		17D9AE4328BF24AA004F10EC /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D9AE4228BF24AA004F10EC /* CoreFoundation.framework */; };
 		17D9AE4528BF252A004F10EC /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D9AE4428BF252A004F10EC /* CoreMedia.framework */; };
-		17D9AE4728BF5D35004F10EC /* shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 17D9AE4628BF5D35004F10EC /* shader.metal */; };
+		17D9AE4728BF5D35004F10EC /* shader1.metal in Sources */ = {isa = PBXBuildFile; fileRef = 17D9AE4628BF5D35004F10EC /* shader1.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		170CB41328C4C90E007B71B0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		1799A02728936B4E00546FC3 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -94,6 +110,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		170CB41528C4C90E007B71B0 /* rgb_texture */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = rgb_texture; sourceTree = BUILT_PRODUCTS_DIR; };
+		170CB41728C4C90E007B71B0 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		172DE9F228C4CCB8008FB530 /* MTKRGBTextureRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTKRGBTextureRenderer.h; sourceTree = "<group>"; };
+		172DE9F328C4CCCA008FB530 /* MTKRGBTextureRenderer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MTKRGBTextureRenderer.mm; sourceTree = "<group>"; };
+		172DE9F728C4CF6F008FB530 /* shader2.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = shader2.metal; sourceTree = "<group>"; };
+		172DE9FA28C4D072008FB530 /* shader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shader.h; sourceTree = "<group>"; };
 		1799A02928936B4E00546FC3 /* clear_color */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = clear_color; sourceTree = BUILT_PRODUCTS_DIR; };
 		1799A02C28936B4E00546FC3 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		1799A03428936C2A00546FC3 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
@@ -115,10 +137,10 @@
 		1799A06E2896A46600546FC3 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		1799A0772896A4EC00546FC3 /* MTK3DModelRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MTK3DModelRenderer.mm; sourceTree = "<group>"; };
 		1799A0782896A4EC00546FC3 /* MTK3DModelRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTK3DModelRenderer.h; sourceTree = "<group>"; };
-		17D9AE2328BCDCFB004F10EC /* camera_to_texture */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = camera_to_texture; sourceTree = BUILT_PRODUCTS_DIR; };
-		17D9AE2D28BCDDE8004F10EC /* MTKCameraTextureRenderer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MTKCameraTextureRenderer.mm; sourceTree = "<group>"; };
+		17D9AE2328BCDCFB004F10EC /* nv12_texture */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = nv12_texture; sourceTree = BUILT_PRODUCTS_DIR; };
+		17D9AE2D28BCDDE8004F10EC /* MTKNV12TextureRenderer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MTKNV12TextureRenderer.mm; sourceTree = "<group>"; };
 		17D9AE2E28BCDDE8004F10EC /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
-		17D9AE2F28BCDDE8004F10EC /* MTKCameraTextureRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTKCameraTextureRenderer.h; sourceTree = "<group>"; };
+		17D9AE2F28BCDDE8004F10EC /* MTKNV12TextureRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTKNV12TextureRenderer.h; sourceTree = "<group>"; };
 		17D9AE3628BCDE8A004F10EC /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		17D9AE3828BCFCF3004F10EC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		17D9AE3B28BF172E004F10EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -126,10 +148,20 @@
 		17D9AE3D28BF1B9B004F10EC /* CameraSession.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CameraSession.mm; sourceTree = "<group>"; };
 		17D9AE4228BF24AA004F10EC /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		17D9AE4428BF252A004F10EC /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
-		17D9AE4628BF5D35004F10EC /* shader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = shader.metal; sourceTree = "<group>"; };
+		17D9AE4628BF5D35004F10EC /* shader1.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = shader1.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		170CB41228C4C90E007B71B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				172DE9F128C4CB49008FB530 /* AppKit.framework in Frameworks */,
+				172DE9F628C4CD22008FB530 /* Metal.framework in Frameworks */,
+				172DE9F528C4CD1C008FB530 /* MetalKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1799A02628936B4E00546FC3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -192,14 +224,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		170CB41628C4C90E007B71B0 /* rgb_texture */ = {
+			isa = PBXGroup;
+			children = (
+				170CB41728C4C90E007B71B0 /* main.mm */,
+				172DE9F228C4CCB8008FB530 /* MTKRGBTextureRenderer.h */,
+				172DE9F328C4CCCA008FB530 /* MTKRGBTextureRenderer.mm */,
+			);
+			path = rgb_texture;
+			sourceTree = "<group>";
+		};
 		1799A02028936B4E00546FC3 = {
 			isa = PBXGroup;
 			children = (
-				17D9AE2C28BCDDE8004F10EC /* camera_to_texture */,
+				17D9AE2C28BCDDE8004F10EC /* nv12_texture */,
 				1799A02B28936B4E00546FC3 /* clear_color */,
 				1799A0452893947900546FC3 /* triangle */,
 				1799A05928968C7200546FC3 /* model */,
 				1799A06D2896A46600546FC3 /* 3d_model */,
+				170CB41628C4C90E007B71B0 /* rgb_texture */,
 				1799A02A28936B4E00546FC3 /* Products */,
 				1799A03328936C2A00546FC3 /* Frameworks */,
 			);
@@ -212,7 +255,8 @@
 				1799A0442893947900546FC3 /* triangle */,
 				1799A05828968C7200546FC3 /* model */,
 				1799A06C2896A46600546FC3 /* 3d_model */,
-				17D9AE2328BCDCFB004F10EC /* camera_to_texture */,
+				17D9AE2328BCDCFB004F10EC /* nv12_texture */,
+				170CB41528C4C90E007B71B0 /* rgb_texture */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -273,23 +317,42 @@
 			path = 3d_model;
 			sourceTree = "<group>";
 		};
-		17D9AE2C28BCDDE8004F10EC /* camera_to_texture */ = {
+		17D9AE2C28BCDDE8004F10EC /* nv12_texture */ = {
 			isa = PBXGroup;
 			children = (
 				17D9AE2E28BCDDE8004F10EC /* main.mm */,
-				17D9AE2F28BCDDE8004F10EC /* MTKCameraTextureRenderer.h */,
-				17D9AE2D28BCDDE8004F10EC /* MTKCameraTextureRenderer.mm */,
+				17D9AE2F28BCDDE8004F10EC /* MTKNV12TextureRenderer.h */,
+				17D9AE2D28BCDDE8004F10EC /* MTKNV12TextureRenderer.mm */,
 				17D9AE3B28BF172E004F10EC /* Info.plist */,
 				17D9AE3C28BF1B84004F10EC /* CameraSession.h */,
 				17D9AE3D28BF1B9B004F10EC /* CameraSession.mm */,
-				17D9AE4628BF5D35004F10EC /* shader.metal */,
+				17D9AE4628BF5D35004F10EC /* shader1.metal */,
+				172DE9F728C4CF6F008FB530 /* shader2.metal */,
+				172DE9FA28C4D072008FB530 /* shader.h */,
 			);
-			path = camera_to_texture;
+			path = nv12_texture;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		170CB41428C4C90E007B71B0 /* rgb_texture */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 170CB41928C4C90E007B71B0 /* Build configuration list for PBXNativeTarget "rgb_texture" */;
+			buildPhases = (
+				170CB41128C4C90E007B71B0 /* Sources */,
+				170CB41228C4C90E007B71B0 /* Frameworks */,
+				170CB41328C4C90E007B71B0 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = rgb_texture;
+			productName = texture;
+			productReference = 170CB41528C4C90E007B71B0 /* rgb_texture */;
+			productType = "com.apple.product-type.tool";
+		};
 		1799A02828936B4E00546FC3 /* clear_color */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1799A03028936B4E00546FC3 /* Build configuration list for PBXNativeTarget "clear_color" */;
@@ -358,9 +421,9 @@
 			productReference = 1799A06C2896A46600546FC3 /* 3d_model */;
 			productType = "com.apple.product-type.tool";
 		};
-		17D9AE2228BCDCFB004F10EC /* camera_to_texture */ = {
+		17D9AE2228BCDCFB004F10EC /* nv12_texture */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 17D9AE2928BCDCFB004F10EC /* Build configuration list for PBXNativeTarget "camera_to_texture" */;
+			buildConfigurationList = 17D9AE2928BCDCFB004F10EC /* Build configuration list for PBXNativeTarget "nv12_texture" */;
 			buildPhases = (
 				17D9AE1F28BCDCFB004F10EC /* Sources */,
 				17D9AE2028BCDCFB004F10EC /* Frameworks */,
@@ -370,9 +433,9 @@
 			);
 			dependencies = (
 			);
-			name = camera_to_texture;
+			name = nv12_texture;
 			productName = camera_to_texture;
-			productReference = 17D9AE2328BCDCFB004F10EC /* camera_to_texture */;
+			productReference = 17D9AE2328BCDCFB004F10EC /* nv12_texture */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -384,6 +447,9 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
+					170CB41428C4C90E007B71B0 = {
+						CreatedOnToolsVersion = 13.4;
+					};
 					1799A02828936B4E00546FC3 = {
 						CreatedOnToolsVersion = 13.4;
 					};
@@ -418,12 +484,22 @@
 				1799A0432893947900546FC3 /* triangle */,
 				1799A05728968C7200546FC3 /* model */,
 				1799A06B2896A46600546FC3 /* 3d_model */,
-				17D9AE2228BCDCFB004F10EC /* camera_to_texture */,
+				17D9AE2228BCDCFB004F10EC /* nv12_texture */,
+				170CB41428C4C90E007B71B0 /* rgb_texture */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		170CB41128C4C90E007B71B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				170CB41828C4C90E007B71B0 /* main.mm in Sources */,
+				172DE9F428C4CCCA008FB530 /* MTKRGBTextureRenderer.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1799A02528936B4E00546FC3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -464,9 +540,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17D9AE4728BF5D35004F10EC /* shader.metal in Sources */,
+				172DE9FB28C4D0B6008FB530 /* shader.h in Sources */,
+				172DE9F828C4CF6F008FB530 /* shader2.metal in Sources */,
+				17D9AE4728BF5D35004F10EC /* shader1.metal in Sources */,
 				17D9AE3028BCDE03004F10EC /* main.mm in Sources */,
-				17D9AE3128BCDE03004F10EC /* MTKCameraTextureRenderer.mm in Sources */,
+				17D9AE3128BCDE03004F10EC /* MTKNV12TextureRenderer.mm in Sources */,
 				17D9AE3E28BF1B9B004F10EC /* CameraSession.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -474,6 +552,26 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		170CB41A28C4C90E007B71B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		170CB41B28C4C90E007B71B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		1799A02E28936B4E00546FC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -668,6 +766,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		170CB41928C4C90E007B71B0 /* Build configuration list for PBXNativeTarget "rgb_texture" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				170CB41A28C4C90E007B71B0 /* Debug */,
+				170CB41B28C4C90E007B71B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1799A02428936B4E00546FC3 /* Build configuration list for PBXProject "metal-test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -713,7 +820,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		17D9AE2928BCDCFB004F10EC /* Build configuration list for PBXNativeTarget "camera_to_texture" */ = {
+		17D9AE2928BCDCFB004F10EC /* Build configuration list for PBXNativeTarget "nv12_texture" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				17D9AE2728BCDCFB004F10EC /* Debug */,
