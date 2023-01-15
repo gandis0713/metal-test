@@ -42,7 +42,6 @@
     )";
 
     NSLog(@"%@", source);
-
     id<MTLLibrary> library = [device newLibraryWithSource:source
                                                   options:nullptr
                                                     error:&err];
@@ -132,13 +131,28 @@
         [render_command_encoder setVertexBuffer:mesh_buffer offset:0 atIndex:0];
         [render_command_encoder setTriangleFillMode:MTLTriangleFillModeLines];
         
-        MTKSubmesh* sub_mesh = mesh.submeshes.firstObject;
-        [render_command_encoder drawIndexedPrimitives:MTLPrimitiveTypeLine
-//                                drawIndexedPrimitives:MTLPrimitiveTypePoint // bug...
-                                indexCount:sub_mesh.indexCount
-                                indexType:sub_mesh.indexType
-                                indexBuffer:sub_mesh.indexBuffer.buffer
-                                indexBufferOffset:sub_mesh.indexBuffer.offset];
+        for(MTKSubmesh* sub_mesh in mesh.submeshes)
+        {
+            NSLog(@"index Count : %lu", (unsigned long)sub_mesh.indexCount);
+            MTLIndexType type = sub_mesh.indexType;
+            if(type != MTLIndexTypeUInt32) // only use UInt32?
+            {
+                NSLog(@"index Type : %lu", (unsigned long)sub_mesh.indexType);
+            }
+            NSUInteger offset = sub_mesh.indexBuffer.offset;
+            if(offset != 0) // Why offset is always zero?
+            {
+                NSLog(@"index offset : %lu", (unsigned long)sub_mesh.indexBuffer.offset);
+            }
+            [render_command_encoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
+    //                                drawIndexedPrimitives:MTLPrimitiveTypePoint // bug...
+                                    indexCount:sub_mesh.indexCount
+                                    indexType:type
+                                    indexBuffer:sub_mesh.indexBuffer.buffer
+                                    indexBufferOffset:offset
+            ];
+        }
+
         
         [render_command_encoder endEncoding];
         

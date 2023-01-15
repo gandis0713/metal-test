@@ -360,9 +360,9 @@
 			isa = PBXGroup;
 			children = (
 				CEEEFC262973FC4C00A7389E /* res */,
+				CEEEFC2E2973FC4C00A7389E /* MTK3DModelRenderer.h */,
 				CEEEFC2C2973FC4C00A7389E /* MTK3DModelRenderer.mm */,
 				CEEEFC2D2973FC4C00A7389E /* main.mm */,
-				CEEEFC2E2973FC4C00A7389E /* MTK3DModelRenderer.h */,
 			);
 			path = model_3d;
 			sourceTree = "<group>";
