@@ -26,8 +26,7 @@
 {
     NSError* err = nullptr;
     
-    NSString* source = [NSString stringWithString:
-    @R"(
+    NSString* source = @R"(
         #include <metal_stdlib>
         using namespace metal;
         struct VertexIn {
@@ -40,13 +39,17 @@
         fragment float4 fragment_main() {
          return float4(1, 1, 0, 1);
         }
-    )"];
+    )";
 
     NSLog(@"%@", source);
 
     id<MTLLibrary> library = [device newLibraryWithSource:source
                                                   options:nullptr
                                                     error:&err];
+    /* swift codce
+     let library = try device.makeLibrary(source: shader, options: nil)
+     */
+    
 
     if(!library)
     {
@@ -55,7 +58,9 @@
     }
     
     id<MTLFunction> vertex_function = [library newFunctionWithName:@"vertex_main"];
+    // swift code: let vertex_function = library.makeFunction(name: "vertex_main")
     id<MTLFunction> fragment_function = [library newFunctionWithName:@"fragment_main"];
+    // swift code: let framgment_function = library.makeFunction(name: "fragment_main")
     
     MTLRenderPipelineDescriptor* render_pipeline_descriptor = [[MTLRenderPipelineDescriptor alloc]init];
     [render_pipeline_descriptor setVertexFunction:vertex_function];
@@ -79,19 +84,6 @@
     
     vector_float3 cone_extent = {1, 1, 1};
     vector_uint2 segments = {100, 100};
-//    NSString* resource = [[NSString alloc]initWithString:@"/Users/user/Downloads/train.obj"];
-//    NSString *name = [resource stringByDeletingPathExtension];
-//    NSString *extension = [resource pathExtension];
-
-//       return [[NSBundle mainBundle] URLForResource:name withExtension:extension];
-    
-//    NSBundle* bundle = [NSBundle mainBundle];
-//    let asset = MDLAsset(url: assetURL,
-//     vertexDescriptor: meshDescriptor,
-//     bufferAllocator: allocator)
-//    NSString* path = [bundle pathForResource:@"train" ofType:@"obj"];
-//    NSURL* url = @"";
-//    [MDLAsset alloc]initWithURL:<#(nullable NSURL *)#> vertexDescriptor:<#(nullable MDLVertexDescriptor *)#> bufferAllocator:<#(nullable id<MDLMeshBufferAllocator>)#>
     
     MDLMesh* mdl_mesh = [[MDLMesh alloc] initConeWithExtent:cone_extent
                                                    segments:segments
@@ -120,11 +112,20 @@
 //    NSLog(@"drawInMTKView");
     @autoreleasepool
     {
+        // to get render command encoder from MTLRenderPassDescriptor, we call the currentRenderPassDescriptor on view.
         MTLRenderPassDescriptor* render_pass_descriptor = [view currentRenderPassDescriptor];
         
+        // get a command buffer from the command queue.
+        // do not create the command queue every frame.
+        // use the command buffer that was created when the app started.
         id<MTLCommandBuffer> command_buffer = [command_queue commandBuffer];
+        
+        // create a render command encoder
+        // https://developer.apple.com/documentation/metal/mtlcommandbuffer/1442999-rendercommandencoderwithdescript
         id<MTLRenderCommandEncoder> render_command_encoder = [command_buffer renderCommandEncoderWithDescriptor:render_pass_descriptor];
         
+        // set render pipeline state.
+        // do not create the render pipeline state every frame.
         [render_command_encoder setRenderPipelineState:render_pipeline_state];
         id<MTLBuffer> mesh_buffer = [mesh.vertexBuffers[0] buffer];
         [render_command_encoder setVertexBuffer:mesh_buffer offset:0 atIndex:0];

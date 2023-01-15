@@ -26,7 +26,7 @@
 {
     NSError* err = nullptr;
     
-    NSString* source = [NSString stringWithString:@R"(
+    NSString* source = @R"(
         #include <metal_stdlib>
         using namespace metal;
         struct VertexIn {
@@ -39,7 +39,7 @@
         fragment float4 fragment_main() {
          return float4(1, 1, 0, 1);
         }
-    )"];
+    )";
 
     NSLog(@"%@", source);
 

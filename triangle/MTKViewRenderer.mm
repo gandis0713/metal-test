@@ -68,16 +68,16 @@
 //    id<MTLFunction> fragment_function = [library newFunctionWithName:@"fragmentMain"];
   
     
-    NSString* vertex_source = [NSString stringWithString:@R"(
+    NSString* vertex_source = @R"(
         #include <metal_stdlib>
         using namespace metal;
-
+    
         struct v2f
         {
             float4 position [[position]];
             half3 color;
         };
-
+    
         vertex v2f vertex_main( uint vertexId [[vertex_id]],
                                device const float3* positions [[buffer(0)]],
                                device const float3* colors [[buffer(1)]] )
@@ -87,23 +87,23 @@
             o.color = half3 ( colors[ vertexId ] );
             return o;
         }
-    )"];
+    )";
     
-    NSString* fragment_source = [NSString stringWithString: @R"(
+    NSString* fragment_source = @R"(
         #include <metal_stdlib>
         using namespace metal;
-
+    
         struct v2f
         {
             float4 position [[position]];
             half3 color;
         };
-
+    
         fragment half4 fragment_main( v2f in [[stage_in]] )
         {
             return half4( in.color, 1.0 );
         }
-    )"];
+    )";
     
     NSLog(@"vertex shader : %@", vertex_source);
     NSLog(@"fragment shader : %@", fragment_source);
