@@ -2,13 +2,12 @@
 //  main.cpp
 //  3d_model
 //
-//  Created by gandis on 2022/07/31.
+//  Created by gandis on 2023/01/15.
 //
 
 #import "MTK3DModelRenderer.h"
 
-int main(int argc, const char * argv[])
-{
+int main(int argc, const char * argv[]) {
     @autoreleasepool
     {
         id<MTLDevice> device = MTLCreateSystemDefaultDevice();

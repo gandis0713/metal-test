@@ -1,4 +1,4 @@
-//
+///
 //  MTK3DModelRenderer.cpp
 //  model
 //
@@ -37,7 +37,7 @@
          return vertex_in.position;
         }
         fragment float4 fragment_main() {
-         return float4(1, 1, 0, 1);
+         return float4(1, 0, 0, 1);
         }
     )";
 
@@ -82,15 +82,16 @@
 {
     MTKMeshBufferAllocator* mesh_buffer_allocator = [[MTKMeshBufferAllocator alloc] initWithDevice:device];
     
-    vector_float3 cone_extent = {1, 1, 1};
-    vector_uint2 segments = {100, 100};
+    NSString* path = [[NSBundle mainBundle]
+                            pathForResource:[NSString stringWithFormat:@"train"]
+                            ofType:@"obj"];
+    NSURL *url = [NSURL fileURLWithPath:path];
+    MDLVertexDescriptor* vertex_descriptor = [[MDLVertexDescriptor alloc] init];
     
-    MDLMesh* mdl_mesh = [[MDLMesh alloc] initConeWithExtent:cone_extent
-                                                   segments:segments
-                                              inwardNormals:false
-                                            cap: true
-                                            geometryType:MDLGeometryTypeTriangles
-                                              allocator:mesh_buffer_allocator];
+    MDLAsset* mdl_asset = [[MDLAsset alloc] initWithURL:url vertexDescriptor:vertex_descriptor bufferAllocator:mesh_buffer_allocator];
+    
+    NSArray<MDLObject*>* mdl_objects = [mdl_asset childObjectsOfClass:[MDLMesh class]];
+    MDLMesh* mdl_mesh = (MDLMesh*)mdl_objects[0];
     
     NSError* err = nullptr;
     
@@ -129,13 +130,15 @@
         [render_command_encoder setRenderPipelineState:render_pipeline_state];
         id<MTLBuffer> mesh_buffer = [mesh.vertexBuffers[0] buffer];
         [render_command_encoder setVertexBuffer:mesh_buffer offset:0 atIndex:0];
+        [render_command_encoder setTriangleFillMode:MTLTriangleFillModeLines];
         
         MTKSubmesh* sub_mesh = mesh.submeshes.firstObject;
         [render_command_encoder drawIndexedPrimitives:MTLPrimitiveTypeLine
-                                        indexCount:sub_mesh.indexCount
-                                        indexType:sub_mesh.indexType
-                                        indexBuffer:sub_mesh.indexBuffer.buffer
-                                        indexBufferOffset:0];
+//                                drawIndexedPrimitives:MTLPrimitiveTypePoint // bug...
+                                indexCount:sub_mesh.indexCount
+                                indexType:sub_mesh.indexType
+                                indexBuffer:sub_mesh.indexBuffer.buffer
+                                indexBufferOffset:sub_mesh.indexBuffer.offset];
         
         [render_command_encoder endEncoding];
         

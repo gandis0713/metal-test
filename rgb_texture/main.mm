@@ -19,8 +19,8 @@ int main(int argc, const char * argv[])
         NSRect viewRect = NSMakeRect(0, 0, 1280, 720);
         
         MTKRGBTextureRenderer* rgb_texture_renderer = [[MTKRGBTextureRenderer alloc]initWithDevice:device];
-        [nv12_texture_renderer buildBuffers];
-        [nv12_texture_renderer buildShaders];
+//        [rgb_texture_renderer buildBuffers];
+//        [rgb_texture_renderer buildShaders];
         
         MTKView* view = [[MTKView alloc] initWithFrame:viewRect];
         view.device = device;
