@@ -44,17 +44,20 @@
 		17D9AE4328BF24AA004F10EC /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D9AE4228BF24AA004F10EC /* CoreFoundation.framework */; };
 		17D9AE4528BF252A004F10EC /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D9AE4428BF252A004F10EC /* CoreMedia.framework */; };
 		17D9AE4728BF5D35004F10EC /* shader1.metal in Sources */ = {isa = PBXBuildFile; fileRef = 17D9AE4628BF5D35004F10EC /* shader1.metal */; };
-		CEEEFC2F2973FC4D00A7389E /* train.blend in Resources */ = {isa = PBXBuildFile; fileRef = CEEEFC272973FC4C00A7389E /* train.blend */; };
-		CEEEFC302973FC4D00A7389E /* train.hiplc in Resources */ = {isa = PBXBuildFile; fileRef = CEEEFC282973FC4C00A7389E /* train.hiplc */; };
-		CEEEFC312973FC4D00A7389E /* train.obj in Resources */ = {isa = PBXBuildFile; fileRef = CEEEFC292973FC4C00A7389E /* train.obj */; };
-		CEEEFC322973FC4D00A7389E /* train.mtl in Resources */ = {isa = PBXBuildFile; fileRef = CEEEFC2A2973FC4C00A7389E /* train.mtl */; };
-		CEEEFC332973FC4D00A7389E /* train.usd in Resources */ = {isa = PBXBuildFile; fileRef = CEEEFC2B2973FC4C00A7389E /* train.usd */; };
-		CEEEFC342973FC4D00A7389E /* MTK3DModelRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = CEEEFC2C2973FC4C00A7389E /* MTK3DModelRenderer.mm */; };
-		CEEEFC352973FC4D00A7389E /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = CEEEFC2D2973FC4C00A7389E /* main.mm */; };
-		CEEEFC362973FC9600A7389E /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A0382893710D00546FC3 /* Metal.framework */; };
-		CEEEFC372973FC9600A7389E /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A03428936C2A00546FC3 /* MetalKit.framework */; };
-		CEEEFC382973FC9A00A7389E /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A03A289374DB00546FC3 /* AppKit.framework */; };
-		CEEEFC392973FC9E00A7389E /* ModelIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A06128968FF800546FC3 /* ModelIO.framework */; };
+		CE2EC9C0297AC2F7002703BA /* MTK3DModelRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE2EC9BD297AC2F7002703BA /* MTK3DModelRenderer.mm */; };
+		CE2EC9C1297AC2F7002703BA /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE2EC9BE297AC2F7002703BA /* main.mm */; };
+		CE2EC9C4297AC3EC002703BA /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A0382893710D00546FC3 /* Metal.framework */; };
+		CE2EC9C5297AC3EC002703BA /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A03428936C2A00546FC3 /* MetalKit.framework */; };
+		CE2EC9C6297AC3F1002703BA /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A03A289374DB00546FC3 /* AppKit.framework */; };
+		CE2EC9C7297AC3F5002703BA /* ModelIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A06128968FF800546FC3 /* ModelIO.framework */; };
+		CE2EC9CB297AC4F8002703BA /* MTKLightFundamentalRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE2EC9C8297AC4F8002703BA /* MTKLightFundamentalRenderer.mm */; };
+		CE2EC9CC297AC4F8002703BA /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE2EC9C9297AC4F8002703BA /* main.mm */; };
+		CE2EC9CD297AC516002703BA /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A0382893710D00546FC3 /* Metal.framework */; };
+		CE2EC9CE297AC516002703BA /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A03428936C2A00546FC3 /* MetalKit.framework */; };
+		CE2EC9CF297AC51A002703BA /* ModelIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A06128968FF800546FC3 /* ModelIO.framework */; };
+		CE2EC9D0297AC51E002703BA /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A03A289374DB00546FC3 /* AppKit.framework */; };
+		CE2EC9D8297AC668002703BA /* train in Resources */ = {isa = PBXBuildFile; fileRef = CE2EC9D6297AC636002703BA /* train */; };
+		CE2EC9D9297AC66D002703BA /* train in Resources */ = {isa = PBXBuildFile; fileRef = CE2EC9D6297AC636002703BA /* train */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -141,15 +144,15 @@
 		17D9AE4228BF24AA004F10EC /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		17D9AE4428BF252A004F10EC /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		17D9AE4628BF5D35004F10EC /* shader1.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = shader1.metal; sourceTree = "<group>"; };
-		CEEEFBE42973FB8100A7389E /* train.blend */ = {isa = PBXFileReference; lastKnownFileType = file; path = train.blend; sourceTree = "<group>"; };
-		CEEEFBE52973FB8100A7389E /* train.hiplc */ = {isa = PBXFileReference; lastKnownFileType = file; path = train.hiplc; sourceTree = "<group>"; };
-		CEEEFBE62973FB8100A7389E /* train.obj */ = {isa = PBXFileReference; lastKnownFileType = text; path = train.obj; sourceTree = "<group>"; };
-		CEEEFBE72973FB8100A7389E /* train.mtl */ = {isa = PBXFileReference; lastKnownFileType = text; path = train.mtl; sourceTree = "<group>"; };
-		CEEEFBE82973FB8100A7389E /* train.usd */ = {isa = PBXFileReference; lastKnownFileType = file; path = train.usd; sourceTree = "<group>"; };
-		CEEEFBE92973FB8100A7389E /* MTK3DModelRenderer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MTK3DModelRenderer.mm; sourceTree = "<group>"; };
-		CEEEFBEA2973FB8100A7389E /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
-		CEEEFBEB2973FB8100A7389E /* MTK3DModelRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTK3DModelRenderer.h; sourceTree = "<group>"; };
-		CEEEFC072973FC1500A7389E /* model_3d.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = model_3d.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE2EC97E297AC18D002703BA /* c5-light-fundamentals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "c5-light-fundamentals.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE2EC995297AC1AB002703BA /* c2-3d-models.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "c2-3d-models.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE2EC9BD297AC2F7002703BA /* MTK3DModelRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MTK3DModelRenderer.mm; sourceTree = "<group>"; };
+		CE2EC9BE297AC2F7002703BA /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		CE2EC9BF297AC2F7002703BA /* MTK3DModelRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTK3DModelRenderer.h; sourceTree = "<group>"; };
+		CE2EC9C8297AC4F8002703BA /* MTKLightFundamentalRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MTKLightFundamentalRenderer.mm; sourceTree = "<group>"; };
+		CE2EC9C9297AC4F8002703BA /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		CE2EC9CA297AC4F8002703BA /* MTKLightFundamentalRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKLightFundamentalRenderer.h; sourceTree = "<group>"; };
+		CE2EC9D6297AC636002703BA /* train */ = {isa = PBXFileReference; lastKnownFileType = folder; path = train; sourceTree = "<group>"; };
 		CEEEFC272973FC4C00A7389E /* train.blend */ = {isa = PBXFileReference; lastKnownFileType = file; path = train.blend; sourceTree = "<group>"; };
 		CEEEFC282973FC4C00A7389E /* train.hiplc */ = {isa = PBXFileReference; lastKnownFileType = file; path = train.hiplc; sourceTree = "<group>"; };
 		CEEEFC292973FC4C00A7389E /* train.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = train.obj; sourceTree = "<group>"; };
@@ -219,14 +222,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CEEEFC042973FC1500A7389E /* Frameworks */ = {
+		CE2EC97B297AC18D002703BA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEEEFC382973FC9A00A7389E /* AppKit.framework in Frameworks */,
-				CEEEFC362973FC9600A7389E /* Metal.framework in Frameworks */,
-				CEEEFC392973FC9E00A7389E /* ModelIO.framework in Frameworks */,
-				CEEEFC372973FC9600A7389E /* MetalKit.framework in Frameworks */,
+				CE2EC9D0297AC51E002703BA /* AppKit.framework in Frameworks */,
+				CE2EC9CF297AC51A002703BA /* ModelIO.framework in Frameworks */,
+				CE2EC9CD297AC516002703BA /* Metal.framework in Frameworks */,
+				CE2EC9CE297AC516002703BA /* MetalKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE2EC992297AC1AB002703BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE2EC9C7297AC3F5002703BA /* ModelIO.framework in Frameworks */,
+				CE2EC9C6297AC3F1002703BA /* AppKit.framework in Frameworks */,
+				CE2EC9C4297AC3EC002703BA /* Metal.framework in Frameworks */,
+				CE2EC9C5297AC3EC002703BA /* MetalKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,13 +260,15 @@
 		1799A02028936B4E00546FC3 = {
 			isa = PBXGroup;
 			children = (
-				CEEEFBE22973FB8100A7389E /* model_3d */,
+				CE2EC9D5297AC61D002703BA /* resources */,
 				17D9AE2C28BCDDE8004F10EC /* nv12_texture */,
 				1799A02B28936B4E00546FC3 /* clear_color */,
 				1799A0452893947900546FC3 /* triangle */,
 				1799A05928968C7200546FC3 /* model */,
 				170CB41628C4C90E007B71B0 /* rgb_texture */,
 				CEEEFC082973FC1500A7389E /* model_3d */,
+				CE2EC996297AC1AB002703BA /* c2-3d-models */,
+				CE2EC97F297AC18D002703BA /* c5-light-fundamentals */,
 				1799A02A28936B4E00546FC3 /* Products */,
 				1799A03328936C2A00546FC3 /* Frameworks */,
 			);
@@ -266,7 +282,8 @@
 				1799A05828968C7200546FC3 /* model */,
 				17D9AE2328BCDCFB004F10EC /* nv12_texture */,
 				170CB41528C4C90E007B71B0 /* rgb_texture */,
-				CEEEFC072973FC1500A7389E /* model_3d.app */,
+				CE2EC97E297AC18D002703BA /* c5-light-fundamentals.app */,
+				CE2EC995297AC1AB002703BA /* c2-3d-models.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -333,27 +350,32 @@
 			path = nv12_texture;
 			sourceTree = "<group>";
 		};
-		CEEEFBE22973FB8100A7389E /* model_3d */ = {
+		CE2EC97F297AC18D002703BA /* c5-light-fundamentals */ = {
 			isa = PBXGroup;
 			children = (
-				CEEEFBE32973FB8100A7389E /* res */,
-				CEEEFBE92973FB8100A7389E /* MTK3DModelRenderer.mm */,
-				CEEEFBEA2973FB8100A7389E /* main.mm */,
-				CEEEFBEB2973FB8100A7389E /* MTK3DModelRenderer.h */,
+				CE2EC9C9297AC4F8002703BA /* main.mm */,
+				CE2EC9CA297AC4F8002703BA /* MTKLightFundamentalRenderer.h */,
+				CE2EC9C8297AC4F8002703BA /* MTKLightFundamentalRenderer.mm */,
 			);
-			path = model_3d;
+			path = "c5-light-fundamentals";
 			sourceTree = "<group>";
 		};
-		CEEEFBE32973FB8100A7389E /* res */ = {
+		CE2EC996297AC1AB002703BA /* c2-3d-models */ = {
 			isa = PBXGroup;
 			children = (
-				CEEEFBE42973FB8100A7389E /* train.blend */,
-				CEEEFBE52973FB8100A7389E /* train.hiplc */,
-				CEEEFBE62973FB8100A7389E /* train.obj */,
-				CEEEFBE72973FB8100A7389E /* train.mtl */,
-				CEEEFBE82973FB8100A7389E /* train.usd */,
+				CE2EC9BE297AC2F7002703BA /* main.mm */,
+				CE2EC9BF297AC2F7002703BA /* MTK3DModelRenderer.h */,
+				CE2EC9BD297AC2F7002703BA /* MTK3DModelRenderer.mm */,
 			);
-			path = res;
+			path = "c2-3d-models";
+			sourceTree = "<group>";
+		};
+		CE2EC9D5297AC61D002703BA /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				CE2EC9D6297AC636002703BA /* train */,
+			);
+			path = resources;
 			sourceTree = "<group>";
 		};
 		CEEEFC082973FC1500A7389E /* model_3d */ = {
@@ -467,21 +489,38 @@
 			productReference = 17D9AE2328BCDCFB004F10EC /* nv12_texture */;
 			productType = "com.apple.product-type.tool";
 		};
-		CEEEFC062973FC1500A7389E /* model_3d */ = {
+		CE2EC97D297AC18D002703BA /* c5-light-fundamentals */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CEEEFC172973FC1600A7389E /* Build configuration list for PBXNativeTarget "model_3d" */;
+			buildConfigurationList = CE2EC990297AC18E002703BA /* Build configuration list for PBXNativeTarget "c5-light-fundamentals" */;
 			buildPhases = (
-				CEEEFC032973FC1500A7389E /* Sources */,
-				CEEEFC042973FC1500A7389E /* Frameworks */,
-				CEEEFC052973FC1500A7389E /* Resources */,
+				CE2EC97A297AC18D002703BA /* Sources */,
+				CE2EC97B297AC18D002703BA /* Frameworks */,
+				CE2EC97C297AC18D002703BA /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = model_3d;
-			productName = model_3d;
-			productReference = CEEEFC072973FC1500A7389E /* model_3d.app */;
+			name = "c5-light-fundamentals";
+			productName = "c5-light-fundamentals";
+			productReference = CE2EC97E297AC18D002703BA /* c5-light-fundamentals.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CE2EC994297AC1AB002703BA /* c2-3d-models */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE2EC9A5297AC1AC002703BA /* Build configuration list for PBXNativeTarget "c2-3d-models" */;
+			buildPhases = (
+				CE2EC991297AC1AB002703BA /* Sources */,
+				CE2EC992297AC1AB002703BA /* Frameworks */,
+				CE2EC993297AC1AB002703BA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "c2-3d-models";
+			productName = "c2-3d-models";
+			productReference = CE2EC995297AC1AB002703BA /* c2-3d-models.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -508,7 +547,10 @@
 					17D9AE2228BCDCFB004F10EC = {
 						CreatedOnToolsVersion = 13.4;
 					};
-					CEEEFC062973FC1500A7389E = {
+					CE2EC97D297AC18D002703BA = {
+						CreatedOnToolsVersion = 14.0.1;
+					};
+					CE2EC994297AC1AB002703BA = {
 						CreatedOnToolsVersion = 14.0.1;
 					};
 				};
@@ -531,21 +573,26 @@
 				1799A05728968C7200546FC3 /* model */,
 				17D9AE2228BCDCFB004F10EC /* nv12_texture */,
 				170CB41428C4C90E007B71B0 /* rgb_texture */,
-				CEEEFC062973FC1500A7389E /* model_3d */,
+				CE2EC994297AC1AB002703BA /* c2-3d-models */,
+				CE2EC97D297AC18D002703BA /* c5-light-fundamentals */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		CEEEFC052973FC1500A7389E /* Resources */ = {
+		CE2EC97C297AC18D002703BA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEEEFC312973FC4D00A7389E /* train.obj in Resources */,
-				CEEEFC302973FC4D00A7389E /* train.hiplc in Resources */,
-				CEEEFC2F2973FC4D00A7389E /* train.blend in Resources */,
-				CEEEFC332973FC4D00A7389E /* train.usd in Resources */,
-				CEEEFC322973FC4D00A7389E /* train.mtl in Resources */,
+				CE2EC9D9297AC66D002703BA /* train in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE2EC993297AC1AB002703BA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE2EC9D8297AC668002703BA /* train in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,12 +648,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CEEEFC032973FC1500A7389E /* Sources */ = {
+		CE2EC97A297AC18D002703BA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEEEFC352973FC4D00A7389E /* main.mm in Sources */,
-				CEEEFC342973FC4D00A7389E /* MTK3DModelRenderer.mm in Sources */,
+				CE2EC9CC297AC4F8002703BA /* main.mm in Sources */,
+				CE2EC9CB297AC4F8002703BA /* MTKLightFundamentalRenderer.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE2EC991297AC1AB002703BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE2EC9C0297AC2F7002703BA /* MTK3DModelRenderer.mm in Sources */,
+				CE2EC9C1297AC2F7002703BA /* main.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -808,7 +864,7 @@
 			};
 			name = Release;
 		};
-		CEEEFC182973FC1600A7389E /* Debug */ = {
+		CE2EC98E297AC18E002703BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -831,19 +887,20 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "charles.model-3d";
+				PRODUCT_BUNDLE_IDENTIFIER = "charles.c5-light-fundamentals";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 			};
 			name = Debug;
 		};
-		CEEEFC192973FC1600A7389E /* Release */ = {
+		CE2EC98F297AC18E002703BA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = "";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -859,7 +916,65 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "charles.model-3d";
+				PRODUCT_BUNDLE_IDENTIFIER = "charles.c5-light-fundamentals";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Release;
+		};
+		CE2EC9A6297AC1AC002703BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z27J28NH32;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "charles.c2-3d-models";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Debug;
+		};
+		CE2EC9A7297AC1AC002703BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z27J28NH32;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "charles.c2-3d-models";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 			};
@@ -922,11 +1037,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CEEEFC172973FC1600A7389E /* Build configuration list for PBXNativeTarget "model_3d" */ = {
+		CE2EC990297AC18E002703BA /* Build configuration list for PBXNativeTarget "c5-light-fundamentals" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CEEEFC182973FC1600A7389E /* Debug */,
-				CEEEFC192973FC1600A7389E /* Release */,
+				CE2EC98E297AC18E002703BA /* Debug */,
+				CE2EC98F297AC18E002703BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE2EC9A5297AC1AC002703BA /* Build configuration list for PBXNativeTarget "c2-3d-models" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE2EC9A6297AC1AC002703BA /* Debug */,
+				CE2EC9A7297AC1AC002703BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

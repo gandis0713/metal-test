@@ -82,7 +82,7 @@
     MTKMeshBufferAllocator* mesh_buffer_allocator = [[MTKMeshBufferAllocator alloc] initWithDevice:device];
     
     NSString* path = [[NSBundle mainBundle]
-                            pathForResource:[NSString stringWithFormat:@"train"]
+                            pathForResource:[NSString stringWithFormat:@"train/train"]
                             ofType:@"obj"];
     NSURL *url = [NSURL fileURLWithPath:path];
     MDLVertexDescriptor* vertex_descriptor = [[MDLVertexDescriptor alloc] init];
