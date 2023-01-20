@@ -59,12 +59,18 @@
 		CE2EC9D8297AC668002703BA /* train in Resources */ = {isa = PBXBuildFile; fileRef = CE2EC9D6297AC636002703BA /* train */; };
 		CE2EC9D9297AC66D002703BA /* train in Resources */ = {isa = PBXBuildFile; fileRef = CE2EC9D6297AC636002703BA /* train */; };
 		CE2EC9F4297ACFD7002703BA /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE2EC9F1297ACFD7002703BA /* main.mm */; };
-		CE2EC9F5297ACFD7002703BA /* MTK3DTransforms.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE2EC9F3297ACFD7002703BA /* MTK3DTransforms.mm */; };
+		CE2EC9F5297ACFD7002703BA /* MTK3DTransformRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE2EC9F3297ACFD7002703BA /* MTK3DTransformRenderer.mm */; };
 		CE2EC9F6297ACFEC002703BA /* train in Resources */ = {isa = PBXBuildFile; fileRef = CE2EC9D6297AC636002703BA /* train */; };
 		CE2EC9F7297ACFF3002703BA /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A0382893710D00546FC3 /* Metal.framework */; };
 		CE2EC9F8297ACFF3002703BA /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A03428936C2A00546FC3 /* MetalKit.framework */; };
 		CE2EC9F9297ACFF7002703BA /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A03A289374DB00546FC3 /* AppKit.framework */; };
 		CE2EC9FA297ACFFB002703BA /* ModelIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A06128968FF800546FC3 /* ModelIO.framework */; };
+		CE2ECA02297AD4A4002703BA /* Renderer.h in Sources */ = {isa = PBXBuildFile; fileRef = CE2ECA01297AD1D0002703BA /* Renderer.h */; };
+		CE2ECA03297AD4A4002703BA /* Renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE2ECA00297AD1D0002703BA /* Renderer.mm */; };
+		CE2ECA04297AD70C002703BA /* Renderer.h in Sources */ = {isa = PBXBuildFile; fileRef = CE2ECA01297AD1D0002703BA /* Renderer.h */; };
+		CE2ECA05297AD70C002703BA /* Renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE2ECA00297AD1D0002703BA /* Renderer.mm */; };
+		CE2ECA06297ADDB4002703BA /* Renderer.h in Sources */ = {isa = PBXBuildFile; fileRef = CE2ECA01297AD1D0002703BA /* Renderer.h */; };
+		CE2ECA07297ADDB4002703BA /* Renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE2ECA00297AD1D0002703BA /* Renderer.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -162,8 +168,10 @@
 		CE2EC9D6297AC636002703BA /* train */ = {isa = PBXFileReference; lastKnownFileType = folder; path = train; sourceTree = "<group>"; };
 		CE2EC9DE297ACF7D002703BA /* c3-3d-transforms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "c3-3d-transforms.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2EC9F1297ACFD7002703BA /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
-		CE2EC9F2297ACFD7002703BA /* MTK3DTransforms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTK3DTransforms.h; sourceTree = "<group>"; };
-		CE2EC9F3297ACFD7002703BA /* MTK3DTransforms.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MTK3DTransforms.mm; sourceTree = "<group>"; };
+		CE2EC9F2297ACFD7002703BA /* MTK3DTransformRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTK3DTransformRenderer.h; sourceTree = "<group>"; };
+		CE2EC9F3297ACFD7002703BA /* MTK3DTransformRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MTK3DTransformRenderer.mm; sourceTree = "<group>"; };
+		CE2ECA00297AD1D0002703BA /* Renderer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Renderer.mm; sourceTree = "<group>"; };
+		CE2ECA01297AD1D0002703BA /* Renderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +282,7 @@
 		1799A02028936B4E00546FC3 = {
 			isa = PBXGroup;
 			children = (
+				CE2EC9FB297AD140002703BA /* sources */,
 				CE2EC9D5297AC61D002703BA /* resources */,
 				17D9AE2C28BCDDE8004F10EC /* nv12_texture */,
 				1799A02B28936B4E00546FC3 /* clear_color */,
@@ -397,10 +406,19 @@
 			isa = PBXGroup;
 			children = (
 				CE2EC9F1297ACFD7002703BA /* main.mm */,
-				CE2EC9F2297ACFD7002703BA /* MTK3DTransforms.h */,
-				CE2EC9F3297ACFD7002703BA /* MTK3DTransforms.mm */,
+				CE2EC9F2297ACFD7002703BA /* MTK3DTransformRenderer.h */,
+				CE2EC9F3297ACFD7002703BA /* MTK3DTransformRenderer.mm */,
 			);
 			path = "c3-3d-transforms";
+			sourceTree = "<group>";
+		};
+		CE2EC9FB297AD140002703BA /* sources */ = {
+			isa = PBXGroup;
+			children = (
+				CE2ECA01297AD1D0002703BA /* Renderer.h */,
+				CE2ECA00297AD1D0002703BA /* Renderer.mm */,
+			);
+			path = sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -683,6 +701,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE2ECA06297ADDB4002703BA /* Renderer.h in Sources */,
+				CE2ECA07297ADDB4002703BA /* Renderer.mm in Sources */,
 				CE2EC9CC297AC4F8002703BA /* main.mm in Sources */,
 				CE2EC9CB297AC4F8002703BA /* MTKLightFundamentalRenderer.mm in Sources */,
 			);
@@ -692,6 +712,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE2ECA04297AD70C002703BA /* Renderer.h in Sources */,
+				CE2ECA05297AD70C002703BA /* Renderer.mm in Sources */,
 				CE2EC9C0297AC2F7002703BA /* MTK3DModelRenderer.mm in Sources */,
 				CE2EC9C1297AC2F7002703BA /* main.mm in Sources */,
 			);
@@ -701,7 +723,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE2EC9F5297ACFD7002703BA /* MTK3DTransforms.mm in Sources */,
+				CE2ECA02297AD4A4002703BA /* Renderer.h in Sources */,
+				CE2ECA03297AD4A4002703BA /* Renderer.mm in Sources */,
+				CE2EC9F5297ACFD7002703BA /* MTK3DTransformRenderer.mm in Sources */,
 				CE2EC9F4297ACFD7002703BA /* main.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

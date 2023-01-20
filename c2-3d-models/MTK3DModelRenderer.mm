@@ -9,19 +9,6 @@
 
 @implementation MTK3DModelRenderer
 
--(id)initWithDevice:(id<MTLDevice>)_device
-{
-    NSLog(@"MTK3DModelRenderer initWithDevice");
-    
-    self = [super init];
-
-    device = _device;
-    
-    command_queue = [device newCommandQueue];
-    
-    return self;
-}
-
 -(void) buildShaders
 {
     NSError* err = nullptr;

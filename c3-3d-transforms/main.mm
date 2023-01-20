@@ -5,22 +5,16 @@
 //  Created by gandis on 2023/01/15.
 //
 
-#import "MTK3DTransforms.h"
+#import "MTK3DTransformRenderer.h"
 
 int main(int argc, const char *argv[]) {
   @autoreleasepool {
-    id<MTLDevice> device = MTLCreateSystemDefaultDevice();
 
     NSRect viewRect = NSMakeRect(0, 0, 1280, 720);
+      MTKView *view = [[MTKView alloc] initWithFrame:viewRect];
 
-    MTK3DTransforms *model_renderer =
-        [[MTK3DTransforms alloc] initWithDevice:device];
-
-    MTKView *view = [[MTKView alloc] initWithFrame:viewRect];
-    view.device = device;
-    view.delegate = model_renderer;
-    view.colorPixelFormat = MTLPixelFormatBGRA8Unorm_sRGB;
-    view.clearColor = MTLClearColorMake(0.0, 0.0, 0.0, 1.0);
+    Renderer *renderer = [[MTK3DTransformRenderer alloc] initWithView:view];
+      
     view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
 
     NSRect windowRect = NSMakeRect(0, 0, 1280, 720);

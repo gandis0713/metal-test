@@ -5,18 +5,12 @@
 //  Created by gandis on 2022/07/31.
 //
 
-#import <MetalKit/MetalKit.h>
+#import "Renderer.h"
 
-@interface MTK3DModelRenderer : NSViewController<MTKViewDelegate>
-{
-    id<MTLDevice> device;
-    id<MTLCommandQueue> command_queue;
-    id<MTLRenderPipelineState> render_pipeline_state;
-    MTKMesh* mesh;
+@interface MTK3DModelRenderer : Renderer {
 }
 
--(id)initWithDevice:(id<MTLDevice>) device;
--(void)buildShaders;
--(void)buildBuffers;
+-(void) buildShaders;
+-(void) buildBuffers;
 
 @end

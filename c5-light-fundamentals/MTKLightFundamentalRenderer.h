@@ -5,13 +5,8 @@
 //  Created by gandis on 2023/01/19.
 //
 
-#import <MetalKit/MetalKit.h>
+#import "Renderer.h"
 
-@interface MTKLightFundamentalRenderer : NSViewController <MTKViewDelegate> {
-  id<MTLDevice> device;
-  id<MTLCommandQueue> command_queue;
+@interface MTKLightFundamentalRenderer : Renderer {
 }
-
-- (id)initWithDevice:(id<MTLDevice>)device;
-
 @end
