@@ -58,6 +58,13 @@
 		CE2EC9D0297AC51E002703BA /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A03A289374DB00546FC3 /* AppKit.framework */; };
 		CE2EC9D8297AC668002703BA /* train in Resources */ = {isa = PBXBuildFile; fileRef = CE2EC9D6297AC636002703BA /* train */; };
 		CE2EC9D9297AC66D002703BA /* train in Resources */ = {isa = PBXBuildFile; fileRef = CE2EC9D6297AC636002703BA /* train */; };
+		CE2EC9F4297ACFD7002703BA /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE2EC9F1297ACFD7002703BA /* main.mm */; };
+		CE2EC9F5297ACFD7002703BA /* MTK3DTransforms.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE2EC9F3297ACFD7002703BA /* MTK3DTransforms.mm */; };
+		CE2EC9F6297ACFEC002703BA /* train in Resources */ = {isa = PBXBuildFile; fileRef = CE2EC9D6297AC636002703BA /* train */; };
+		CE2EC9F7297ACFF3002703BA /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A0382893710D00546FC3 /* Metal.framework */; };
+		CE2EC9F8297ACFF3002703BA /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A03428936C2A00546FC3 /* MetalKit.framework */; };
+		CE2EC9F9297ACFF7002703BA /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A03A289374DB00546FC3 /* AppKit.framework */; };
+		CE2EC9FA297ACFFB002703BA /* ModelIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1799A06128968FF800546FC3 /* ModelIO.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -153,6 +160,10 @@
 		CE2EC9C9297AC4F8002703BA /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		CE2EC9CA297AC4F8002703BA /* MTKLightFundamentalRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKLightFundamentalRenderer.h; sourceTree = "<group>"; };
 		CE2EC9D6297AC636002703BA /* train */ = {isa = PBXFileReference; lastKnownFileType = folder; path = train; sourceTree = "<group>"; };
+		CE2EC9DE297ACF7D002703BA /* c3-3d-transforms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "c3-3d-transforms.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE2EC9F1297ACFD7002703BA /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		CE2EC9F2297ACFD7002703BA /* MTK3DTransforms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTK3DTransforms.h; sourceTree = "<group>"; };
+		CE2EC9F3297ACFD7002703BA /* MTK3DTransforms.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MTK3DTransforms.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +247,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CE2EC9DB297ACF7D002703BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE2EC9FA297ACFFB002703BA /* ModelIO.framework in Frameworks */,
+				CE2EC9F9297ACFF7002703BA /* AppKit.framework in Frameworks */,
+				CE2EC9F7297ACFF3002703BA /* Metal.framework in Frameworks */,
+				CE2EC9F8297ACFF3002703BA /* MetalKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -259,6 +281,7 @@
 				1799A05928968C7200546FC3 /* model */,
 				170CB41628C4C90E007B71B0 /* rgb_texture */,
 				CE2EC996297AC1AB002703BA /* c2-3d-models */,
+				CE2EC9DF297ACF7D002703BA /* c3-3d-transforms */,
 				CE2EC97F297AC18D002703BA /* c5-light-fundamentals */,
 				1799A02A28936B4E00546FC3 /* Products */,
 				1799A03328936C2A00546FC3 /* Frameworks */,
@@ -275,6 +298,7 @@
 				170CB41528C4C90E007B71B0 /* rgb_texture */,
 				CE2EC97E297AC18D002703BA /* c5-light-fundamentals.app */,
 				CE2EC995297AC1AB002703BA /* c2-3d-models.app */,
+				CE2EC9DE297ACF7D002703BA /* c3-3d-transforms.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -367,6 +391,16 @@
 				CE2EC9D6297AC636002703BA /* train */,
 			);
 			path = resources;
+			sourceTree = "<group>";
+		};
+		CE2EC9DF297ACF7D002703BA /* c3-3d-transforms */ = {
+			isa = PBXGroup;
+			children = (
+				CE2EC9F1297ACFD7002703BA /* main.mm */,
+				CE2EC9F2297ACFD7002703BA /* MTK3DTransforms.h */,
+				CE2EC9F3297ACFD7002703BA /* MTK3DTransforms.mm */,
+			);
+			path = "c3-3d-transforms";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -491,6 +525,23 @@
 			productReference = CE2EC995297AC1AB002703BA /* c2-3d-models.app */;
 			productType = "com.apple.product-type.application";
 		};
+		CE2EC9DD297ACF7D002703BA /* c3-3d-transforms */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE2EC9EE297ACF7E002703BA /* Build configuration list for PBXNativeTarget "c3-3d-transforms" */;
+			buildPhases = (
+				CE2EC9DA297ACF7D002703BA /* Sources */,
+				CE2EC9DB297ACF7D002703BA /* Frameworks */,
+				CE2EC9DC297ACF7D002703BA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "c3-3d-transforms";
+			productName = "c3-3d-transforms";
+			productReference = CE2EC9DE297ACF7D002703BA /* c3-3d-transforms.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -521,6 +572,9 @@
 					CE2EC994297AC1AB002703BA = {
 						CreatedOnToolsVersion = 14.0.1;
 					};
+					CE2EC9DD297ACF7D002703BA = {
+						CreatedOnToolsVersion = 14.0.1;
+					};
 				};
 			};
 			buildConfigurationList = 1799A02428936B4E00546FC3 /* Build configuration list for PBXProject "metal-test" */;
@@ -542,6 +596,7 @@
 				17D9AE2228BCDCFB004F10EC /* nv12_texture */,
 				170CB41428C4C90E007B71B0 /* rgb_texture */,
 				CE2EC994297AC1AB002703BA /* c2-3d-models */,
+				CE2EC9DD297ACF7D002703BA /* c3-3d-transforms */,
 				CE2EC97D297AC18D002703BA /* c5-light-fundamentals */,
 			);
 		};
@@ -561,6 +616,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE2EC9D8297AC668002703BA /* train in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE2EC9DC297ACF7D002703BA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE2EC9F6297ACFEC002703BA /* train in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,6 +694,15 @@
 			files = (
 				CE2EC9C0297AC2F7002703BA /* MTK3DModelRenderer.mm in Sources */,
 				CE2EC9C1297AC2F7002703BA /* main.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE2EC9DA297ACF7D002703BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE2EC9F5297ACFD7002703BA /* MTK3DTransforms.mm in Sources */,
+				CE2EC9F4297ACFD7002703BA /* main.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -948,6 +1020,64 @@
 			};
 			name = Release;
 		};
+		CE2EC9EF297ACF7E002703BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z27J28NH32;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "charles.c3-3d-transforms";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Debug;
+		};
+		CE2EC9F0297ACF7E002703BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z27J28NH32;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "charles.c3-3d-transforms";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1019,6 +1149,15 @@
 			buildConfigurations = (
 				CE2EC9A6297AC1AC002703BA /* Debug */,
 				CE2EC9A7297AC1AC002703BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE2EC9EE297ACF7E002703BA /* Build configuration list for PBXNativeTarget "c3-3d-transforms" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE2EC9EF297ACF7E002703BA /* Debug */,
+				CE2EC9F0297ACF7E002703BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
