@@ -153,14 +153,6 @@
 		CE2EC9C9297AC4F8002703BA /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		CE2EC9CA297AC4F8002703BA /* MTKLightFundamentalRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKLightFundamentalRenderer.h; sourceTree = "<group>"; };
 		CE2EC9D6297AC636002703BA /* train */ = {isa = PBXFileReference; lastKnownFileType = folder; path = train; sourceTree = "<group>"; };
-		CEEEFC272973FC4C00A7389E /* train.blend */ = {isa = PBXFileReference; lastKnownFileType = file; path = train.blend; sourceTree = "<group>"; };
-		CEEEFC282973FC4C00A7389E /* train.hiplc */ = {isa = PBXFileReference; lastKnownFileType = file; path = train.hiplc; sourceTree = "<group>"; };
-		CEEEFC292973FC4C00A7389E /* train.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = train.obj; sourceTree = "<group>"; };
-		CEEEFC2A2973FC4C00A7389E /* train.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = train.mtl; sourceTree = "<group>"; };
-		CEEEFC2B2973FC4C00A7389E /* train.usd */ = {isa = PBXFileReference; lastKnownFileType = file; path = train.usd; sourceTree = "<group>"; };
-		CEEEFC2C2973FC4C00A7389E /* MTK3DModelRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MTK3DModelRenderer.mm; sourceTree = "<group>"; };
-		CEEEFC2D2973FC4C00A7389E /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
-		CEEEFC2E2973FC4C00A7389E /* MTK3DModelRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTK3DModelRenderer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,7 +258,6 @@
 				1799A0452893947900546FC3 /* triangle */,
 				1799A05928968C7200546FC3 /* model */,
 				170CB41628C4C90E007B71B0 /* rgb_texture */,
-				CEEEFC082973FC1500A7389E /* model_3d */,
 				CE2EC996297AC1AB002703BA /* c2-3d-models */,
 				CE2EC97F297AC18D002703BA /* c5-light-fundamentals */,
 				1799A02A28936B4E00546FC3 /* Products */,
@@ -376,29 +367,6 @@
 				CE2EC9D6297AC636002703BA /* train */,
 			);
 			path = resources;
-			sourceTree = "<group>";
-		};
-		CEEEFC082973FC1500A7389E /* model_3d */ = {
-			isa = PBXGroup;
-			children = (
-				CEEEFC262973FC4C00A7389E /* res */,
-				CEEEFC2E2973FC4C00A7389E /* MTK3DModelRenderer.h */,
-				CEEEFC2C2973FC4C00A7389E /* MTK3DModelRenderer.mm */,
-				CEEEFC2D2973FC4C00A7389E /* main.mm */,
-			);
-			path = model_3d;
-			sourceTree = "<group>";
-		};
-		CEEEFC262973FC4C00A7389E /* res */ = {
-			isa = PBXGroup;
-			children = (
-				CEEEFC272973FC4C00A7389E /* train.blend */,
-				CEEEFC282973FC4C00A7389E /* train.hiplc */,
-				CEEEFC292973FC4C00A7389E /* train.obj */,
-				CEEEFC2A2973FC4C00A7389E /* train.mtl */,
-				CEEEFC2B2973FC4C00A7389E /* train.usd */,
-			);
-			path = res;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
