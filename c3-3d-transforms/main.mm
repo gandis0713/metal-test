@@ -6,12 +6,14 @@
 //
 
 #import "MTK3DTransformRenderer.h"
+#import <AppKit/AppKit.h>
 
 int main(int argc, const char *argv[]) {
   @autoreleasepool {
 
     NSRect viewRect = NSMakeRect(0, 0, 1280, 720);
       MTKView *view = [[MTKView alloc] initWithFrame:viewRect];
+    NSViewController* view_controller = [[NSViewController alloc] init];
 
     Renderer *renderer = [[MTK3DTransformRenderer alloc] initWithView:view];
       
@@ -29,6 +31,7 @@ int main(int argc, const char *argv[]) {
                                         defer:NO];
 
     [window.contentView addSubview:view];
+      [window setContentViewController:view_controller];
     [window center];
     [window orderFrontRegardless];
 

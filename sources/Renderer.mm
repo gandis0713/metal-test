@@ -21,8 +21,13 @@
 //  return self;
 //}
 
-- (id)initWithView:(MTKView*)_view {
-    NSLog(@"Renderer initWithDevice");
+-(void)viewDidLoad
+{
+    NSLog(@"sdfdf");
+}
+
+-(id)initWithView:(MTKView*)_view {
+//    NSLog(@"Renderer initWithDevice");
 
     self = [super init];
 
@@ -39,11 +44,11 @@
 }
 
 - (void)mtkView:(nonnull MTKView *)view drawableSizeWillChange:(CGSize)size {
-      NSLog(@"Renderer mtkView");
+//      NSLog(@"Renderer mtkView");
 }
 
 - (void)drawInMTKView:(nonnull MTKView *)view {
-      NSLog(@"Renderer drawInMTKView");
+//      NSLog(@"Renderer drawInMTKView");
 }
 @end
 

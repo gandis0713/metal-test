@@ -15,6 +15,7 @@
 }
 
 //- (id)initWithDevice:(id<MTLDevice>)device;
-- (id)initWithView:(MTKView*)view;
+//-(void)viewDidLoad;
+-(id)initWithView:(MTKView*)view;
 
 @end

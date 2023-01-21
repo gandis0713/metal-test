@@ -71,6 +71,14 @@
 		CE2ECA05297AD70C002703BA /* Renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE2ECA00297AD1D0002703BA /* Renderer.mm */; };
 		CE2ECA06297ADDB4002703BA /* Renderer.h in Sources */ = {isa = PBXBuildFile; fileRef = CE2ECA01297AD1D0002703BA /* Renderer.h */; };
 		CE2ECA07297ADDB4002703BA /* Renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE2ECA00297AD1D0002703BA /* Renderer.mm */; };
+		CE504C00297AE13B00CE4E9F /* Primitive.h in Sources */ = {isa = PBXBuildFile; fileRef = CE504BFE297AE00B00CE4E9F /* Primitive.h */; };
+		CE504C01297AE13B00CE4E9F /* Primitive.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE504BFF297AE01D00CE4E9F /* Primitive.mm */; };
+		CE504C04297AE83600CE4E9F /* MacOSViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = CE504C02297AE7DB00CE4E9F /* MacOSViewController.h */; };
+		CE504C05297AE83600CE4E9F /* MacOSViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE504C03297AE7EA00CE4E9F /* MacOSViewController.mm */; };
+		CE504C0D297AF42E00CE4E9F /* c3_3d_transformApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE504C0C297AF42E00CE4E9F /* c3_3d_transformApp.swift */; };
+		CE504C0F297AF42E00CE4E9F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE504C0E297AF42E00CE4E9F /* ContentView.swift */; };
+		CE504C11297AF42F00CE4E9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE504C10297AF42F00CE4E9F /* Assets.xcassets */; };
+		CE504C14297AF42F00CE4E9F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE504C13297AF42F00CE4E9F /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -172,6 +180,16 @@
 		CE2EC9F3297ACFD7002703BA /* MTK3DTransformRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MTK3DTransformRenderer.mm; sourceTree = "<group>"; };
 		CE2ECA00297AD1D0002703BA /* Renderer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Renderer.mm; sourceTree = "<group>"; };
 		CE2ECA01297AD1D0002703BA /* Renderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
+		CE504BFE297AE00B00CE4E9F /* Primitive.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Primitive.h; sourceTree = "<group>"; };
+		CE504BFF297AE01D00CE4E9F /* Primitive.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Primitive.mm; sourceTree = "<group>"; };
+		CE504C02297AE7DB00CE4E9F /* MacOSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacOSViewController.h; sourceTree = "<group>"; };
+		CE504C03297AE7EA00CE4E9F /* MacOSViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MacOSViewController.mm; sourceTree = "<group>"; };
+		CE504C0A297AF42D00CE4E9F /* c3-3d-transform.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "c3-3d-transform.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE504C0C297AF42E00CE4E9F /* c3_3d_transformApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = c3_3d_transformApp.swift; sourceTree = "<group>"; };
+		CE504C0E297AF42E00CE4E9F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CE504C10297AF42F00CE4E9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CE504C13297AF42F00CE4E9F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CE504C15297AF42F00CE4E9F /* c3_3d_transform.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = c3_3d_transform.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +284,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CE504C07297AF42D00CE4E9F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -292,6 +317,7 @@
 				CE2EC996297AC1AB002703BA /* c2-3d-models */,
 				CE2EC9DF297ACF7D002703BA /* c3-3d-transforms */,
 				CE2EC97F297AC18D002703BA /* c5-light-fundamentals */,
+				CE504C0B297AF42E00CE4E9F /* c3-3d-transform */,
 				1799A02A28936B4E00546FC3 /* Products */,
 				1799A03328936C2A00546FC3 /* Frameworks */,
 			);
@@ -308,6 +334,7 @@
 				CE2EC97E297AC18D002703BA /* c5-light-fundamentals.app */,
 				CE2EC995297AC1AB002703BA /* c2-3d-models.app */,
 				CE2EC9DE297ACF7D002703BA /* c3-3d-transforms.app */,
+				CE504C0A297AF42D00CE4E9F /* c3-3d-transform.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -417,8 +444,32 @@
 			children = (
 				CE2ECA01297AD1D0002703BA /* Renderer.h */,
 				CE2ECA00297AD1D0002703BA /* Renderer.mm */,
+				CE504BFE297AE00B00CE4E9F /* Primitive.h */,
+				CE504BFF297AE01D00CE4E9F /* Primitive.mm */,
+				CE504C02297AE7DB00CE4E9F /* MacOSViewController.h */,
+				CE504C03297AE7EA00CE4E9F /* MacOSViewController.mm */,
 			);
 			path = sources;
+			sourceTree = "<group>";
+		};
+		CE504C0B297AF42E00CE4E9F /* c3-3d-transform */ = {
+			isa = PBXGroup;
+			children = (
+				CE504C0C297AF42E00CE4E9F /* c3_3d_transformApp.swift */,
+				CE504C0E297AF42E00CE4E9F /* ContentView.swift */,
+				CE504C10297AF42F00CE4E9F /* Assets.xcassets */,
+				CE504C15297AF42F00CE4E9F /* c3_3d_transform.entitlements */,
+				CE504C12297AF42F00CE4E9F /* Preview Content */,
+			);
+			path = "c3-3d-transform";
+			sourceTree = "<group>";
+		};
+		CE504C12297AF42F00CE4E9F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				CE504C13297AF42F00CE4E9F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -560,6 +611,23 @@
 			productReference = CE2EC9DE297ACF7D002703BA /* c3-3d-transforms.app */;
 			productType = "com.apple.product-type.application";
 		};
+		CE504C09297AF42D00CE4E9F /* c3-3d-transform */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE504C16297AF42F00CE4E9F /* Build configuration list for PBXNativeTarget "c3-3d-transform" */;
+			buildPhases = (
+				CE504C06297AF42D00CE4E9F /* Sources */,
+				CE504C07297AF42D00CE4E9F /* Frameworks */,
+				CE504C08297AF42D00CE4E9F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "c3-3d-transform";
+			productName = "c3-3d-transform";
+			productReference = CE504C0A297AF42D00CE4E9F /* c3-3d-transform.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -567,6 +635,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
 					170CB41428C4C90E007B71B0 = {
@@ -593,6 +662,9 @@
 					CE2EC9DD297ACF7D002703BA = {
 						CreatedOnToolsVersion = 14.0.1;
 					};
+					CE504C09297AF42D00CE4E9F = {
+						CreatedOnToolsVersion = 14.0.1;
+					};
 				};
 			};
 			buildConfigurationList = 1799A02428936B4E00546FC3 /* Build configuration list for PBXProject "metal-test" */;
@@ -616,6 +688,7 @@
 				CE2EC994297AC1AB002703BA /* c2-3d-models */,
 				CE2EC9DD297ACF7D002703BA /* c3-3d-transforms */,
 				CE2EC97D297AC18D002703BA /* c5-light-fundamentals */,
+				CE504C09297AF42D00CE4E9F /* c3-3d-transform */,
 			);
 		};
 /* End PBXProject section */
@@ -642,6 +715,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE2EC9F6297ACFEC002703BA /* train in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE504C08297AF42D00CE4E9F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE504C14297AF42F00CE4E9F /* Preview Assets.xcassets in Resources */,
+				CE504C11297AF42F00CE4E9F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -723,10 +805,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE504C04297AE83600CE4E9F /* MacOSViewController.h in Sources */,
+				CE504C05297AE83600CE4E9F /* MacOSViewController.mm in Sources */,
+				CE504C00297AE13B00CE4E9F /* Primitive.h in Sources */,
+				CE504C01297AE13B00CE4E9F /* Primitive.mm in Sources */,
 				CE2ECA02297AD4A4002703BA /* Renderer.h in Sources */,
 				CE2ECA03297AD4A4002703BA /* Renderer.mm in Sources */,
 				CE2EC9F5297ACFD7002703BA /* MTK3DTransformRenderer.mm in Sources */,
 				CE2EC9F4297ACFD7002703BA /* main.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE504C06297AF42D00CE4E9F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE504C0F297AF42E00CE4E9F /* ContentView.swift in Sources */,
+				CE504C0D297AF42E00CE4E9F /* c3_3d_transformApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1102,6 +1197,68 @@
 			};
 			name = Release;
 		};
+		CE504C17297AF42F00CE4E9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "c3-3d-transform/c3_3d_transform.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"c3-3d-transform/Preview Content\"";
+				DEVELOPMENT_TEAM = Z27J28NH32;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "charles.c3-3d-transform";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		CE504C18297AF42F00CE4E9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "c3-3d-transform/c3_3d_transform.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"c3-3d-transform/Preview Content\"";
+				DEVELOPMENT_TEAM = Z27J28NH32;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "charles.c3-3d-transform";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1182,6 +1339,15 @@
 			buildConfigurations = (
 				CE2EC9EF297ACF7E002703BA /* Debug */,
 				CE2EC9F0297ACF7E002703BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE504C16297AF42F00CE4E9F /* Build configuration list for PBXNativeTarget "c3-3d-transform" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE504C17297AF42F00CE4E9F /* Debug */,
+				CE504C18297AF42F00CE4E9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
